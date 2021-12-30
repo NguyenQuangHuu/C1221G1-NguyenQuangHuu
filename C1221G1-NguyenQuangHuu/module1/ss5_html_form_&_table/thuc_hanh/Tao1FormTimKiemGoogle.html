@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo form tìm kiếm Google</title>
+</head>
+<body>
+<form action="https://www.google.com.vn/search" method="post">
+<!--    - Phương thức get khi submit sẽ đưa đến trang https://www.google.com.vn/search?q=a
+           đưa ta đến với trang tìm kiếm những thứ mà ta đã nhập vào trong ô input
+           chẳng hạn là chữ a mình đã nhập vào , và hiển thị ?q=a trên thanh địa chỉ phía sau
+           giống giá trị ở thuộc tính action
+        - Phương thức post khi submit sẽ báo trang lỗi 405 That's an error.
+        The request method POST is inappropriate for the URL /search. That’s all we know.
+        không hiển thị thêm những từ khác trên thanh địa chỉ
+        -Thay đổi action đưa ta tới trang đích ở trong giá trị của thuộc action
+-->
+    <p>Nhập để tìm kiếm</p>
+    <input type="text" placeholder="Search ...." name="q"/>
+    <input type="submit" value="Tìm kiếm">
+</form>
+</body>
+</html>
