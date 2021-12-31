@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            width: 40%;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        td{
+            text-align: center;
+            padding:6px 0px;
+            width: 40px;
+            height: 40px;
+        }
+        td{
+            border:1px solid gray;
+
+        }
+        .backgroundBoard{
+            background-color: orange;
+            border:none;
+        }
+
+        tr:nth-child(2n+2):not(:first-child) td:nth-child(2n+1):not(:first-child){
+            background-color: black;
+        }
+        tr:nth-child(2n+1) td:nth-child(2n+2){
+            background-color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <h4 style="text-transform: uppercase;text-align: center">Chessboard</h4>
+    <div>
+        <table>
+            <tr class="backgroundBoard">
+                <th>
+
+                </th>
+                <th>
+                    1
+                </th>
+                <th>
+                    2
+                </th>
+                <th>
+                    3
+                </th>
+                <th>
+                    4
+                </th>
+                <th>
+                    5
+                </th>
+                <th>
+                    6
+                </th>
+                <th>
+                    7
+                </th>
+                <th>
+                    8
+                </th>
+            </tr>
+            <tr>
+                <td class="backgroundBoard">A</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+
+            </tr>
+            <tr>
+                <td class="backgroundBoard">B</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="backgroundBoard">C</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="backgroundBoard">D</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="backgroundBoard">E</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="backgroundBoard">F</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="backgroundBoard">G</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="backgroundBoard">H</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
