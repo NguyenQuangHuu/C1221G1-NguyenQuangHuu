@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Biến, kiểu dữ liêu và toán tử</title>
+</head>
+<body>
+
+<script>
+/* Bài 1*/
+    let physics = parseInt(prompt('Nhập điểm Lý: '));
+    let math = parseInt(prompt('Nhập điểm Toán: '));
+    let chemistry = parseInt(prompt('Nhập điểm Hóa: '));
+    let sum = physics + math + chemistry;
+    let avg = (sum/3);
+
+    document.write('Điểm trung bình : '+ avg +', '+ 'Tổng điểm : '+ sum);
+</script>
+
+<script>
+ /* Bài 2*/
+    let celsius = parseInt(prompt('Nhập giá trị độ C: '));
+    let fahrenheit = (celsius*9/5) + 32;
+    document.write('Độ F sau khi chuyển đổi từ '+ celsius + ' độ C là '+fahrenheit +' độ F');
+</script>
+<script>
+    /* Bài 3*/
+    let pi = 3.14;
+    let r = parseInt(prompt('Nhập bán kính đường tròn : '));
+    let area = pi*(r*r);
+    document.write('Diện tích hình tròn với bán kính = '+ r +' là '+ area + ' đơn vị tính');
+</script>
+<script>
+    /* Bài 4*/
+    let pi2 = 3.14;
+    let r = parseInt(prompt('Nhập bán kính đường tròn : '));
+    let circumference = 2*pi2*r;
+    document.write('Chu vi hình tròn với bán kính = ' + r + ' là ' + circumference + ' đơn vị tính');
+</script>
+</body>
+</html>

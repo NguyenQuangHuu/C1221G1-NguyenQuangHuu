@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sự kiện chuôt: Click Event!</title>
+</head>
+<body>
+    <div>
+        <img src="https://m.media-amazon.com/images/I/61Jigwd1kKL._AC_SX425_.jpg" alt="Soccer Ball" id="imgBall" width="200" height="200">
+
+    </div>
+    <p>Click button below to move the image to right</p>
+    <button type="button" id="moveRight">Click me!</button>
+    <script>
+        let imgBall = document.getElementById("imgBall");
+        function init(){
+            imgBall = document.getElementById("imgBall");
+            imgBall.style.position = 'relative';
+            imgBall.style.left = '0px';
+        }
+
+        let move = document.getElementById("moveRight");
+        move.addEventListener('click',moveRight);
+        function moveRight(){
+            imgBall = document.getElementById("imgBall");
+
+            imgBall.style.left = parseInt(imgBall.style.left) + 10 +'px';
+        }
+
+
+        window.onload = init();
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập : Ứng dụng chuyển đổi tiền tệ</title>
+    <style>
+        div{
+            display:inline-block;
+            padding:4px 20px;
+        }
+        h4{
+            margin:0 auto;
+        }
+    </style>
+</head>
+<body>
+<form >
+    <div><label for="amount"><h4>Amount</h4></label>
+    <input type="text" name="amount" id="amount">
+    </div>
+
+    <div><label for="fromCurrency"><h4>Form Currency</h4></label>
+    <select name="from" id="fromCurrency">
+        <option value="1">VietNam</option>
+        <option value="23000">USD</option>
+        <option value="26000">EURO</option>
+        <option value="31000">GBP</option>
+    </select>
+    </div>
+
+    <div>
+
+        <label for="toCurrency"><h4>To Currency</h4></label>
+    <select name="to" id="toCurrency">
+        <option value="1">VietNam</option>
+        <option value="23000">USD</option>
+        <option value="26000">EURO</option>
+        <option value="31000">GBP</option>
+    </select>
+    </div>
+    <button type="button" onclick="show()">Convert</button>
+</form>
+<div id="result" style="color:blue">
+
+</div>
+    <script>
+        function currency(a){
+            var cur = '';
+            if(a === 31000){
+                return cur += 'GBP'
+            }else if(a === 23000){
+                return cur += 'USD';
+            }else if(a === 26000){
+                return cur += 'EURO'
+            }else return cur += 'VND';
+        }
+
+        function show(){
+            var amount = document.getElementById('amount').value;
+            var from = document.getElementById('fromCurrency').value;
+            var to = parseInt(document.getElementById('toCurrency').value);
+
+            var cur = currency(to);
+
+            var result = document.getElementById('result');
+            result.innerHTML = 'Result: '+ ((amount*from)/to) + ' ' + cur ;
+        }
+    </script>
+</body>
+</html>

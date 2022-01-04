@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thực hành sự kiện bàn phím</title>
+</head>
+<body onload="docReady()">
+    <div>
+        <img src="https://james.codegym.vn/pluginfile.php/27447/mod_assign/intro/1.png" alt="Nobita vẫy tay chào Shizuka" id="nobitaImage" height="100px" width="80px">
+    </div>
+    <script>
+        let nobita = null;
+
+        function upArrowPressed(){
+            nobita = document.getElementById("nobitaImage");
+            nobita.style.top = parseInt(nobita.style.top) - 5 +'px';;
+        }
+        function downArrowPressed(){
+            nobita = document.getElementById("nobitaImage");
+            nobita.style.top = parseInt(nobita.style.top) + 5 +'px';
+        }
+        function leftArrowPressed(){
+            nobita = document.getElementById("nobitaImage");
+            nobita.style.left = parseInt(nobita.style.left) - 5 +'px';
+        }
+        function rightArrowPressed(){
+            nobita = document.getElementById("nobitaImage");
+            nobita.style.left = parseInt(nobita.style.left) + 5 +'px';
+        }
+
+        function moveSelection(event){
+            switch (event.key) {
+                case 'ArrowLeft':
+                    leftArrowPressed();
+                    break;
+                case 'ArrowRight':
+                    rightArrowPressed();
+                    break;
+                case 'ArrowUp':
+                    upArrowPressed();
+                    break;
+                case 'ArrowDown':
+                    downArrowPressed();
+                    break;
+            }
+            console.log(event)
+        }
+
+        function docReady(){
+            nobita = document.getElementById("nobitaImage");
+            nobita.style.position='relative';
+            nobita.style.top = '0px';
+            nobita.style.left= '0px';
+            window.addEventListener('keydown',moveSelection);
+        }
+
+    </script>
+</body>
+</html>

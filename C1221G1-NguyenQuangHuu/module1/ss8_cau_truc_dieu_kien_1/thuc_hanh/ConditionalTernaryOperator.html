@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ternary Operator Conditional</title>
+</head>
+<body>
+<script>
+    /*Bài 1*/
+    let a = parseInt(prompt('Enter a value: '));
+    let b = parseInt(prompt('Enter b value: '));
+    let result = (a+b) < 4 ? 'Below' : 'Over';
+    alert(result);
+    /*Bài 2*/
+    let login= prompt('Enter your position?');
+    let msg = login === 'Employee' ? 'Hello' :
+        (login === 'Director') ? 'Greeting' :
+            (login === '') ? 'NO Login' : '';
+
+    alert(msg);
+</script>
+</body>
+</html>

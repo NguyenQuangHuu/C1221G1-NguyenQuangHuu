@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra Năm Nhuận</title>
+</head>
+<body>
+    <div id="result">
+
+    </div>
+    <script>
+
+/*
+    Năm nhuận là năm chia hết cho 4 nhưng không chia hết cho 100
+    năm chia hết cho 100 mà không chia hết cho 400 thì không phải là năm nhuận
+    nếu chia hết cho 100 và 400  là năm nhuận
+* */
+
+        let year = parseInt(prompt('Nhập số năm cần kiểm tra: '));
+        let isLeapYear = false;
+
+        let divisionYearBy4 = year % 4 === 0;
+
+        if(divisionYearBy4){
+            let divisionYearBy100 = year % 100 === 0;
+            if(divisionYearBy100){
+                let divisionYearBy400 = year % 400 === 0;
+                if(divisionYearBy400){
+                    isLeapYear = true;
+                }
+            }else{
+                isLeapYear = true;
+            }
+
+        }
+
+        if(isLeapYear){
+            alert('Năm '+year+' là năm nhuận');
+        }else{
+            alert('Năm '+year+' không phải là năm nhuận');
+        }
+    </script>
+</body>
+</html>
