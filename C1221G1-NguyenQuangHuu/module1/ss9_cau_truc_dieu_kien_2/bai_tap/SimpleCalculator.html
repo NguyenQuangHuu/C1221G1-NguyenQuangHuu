@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính đơn giản</title>
+    <style>
+        *{
+            font-size:18px;
+
+        }
+        form{
+            width: 50%;
+            margin:0 auto;
+        }
+        table{
+            width: 50%;
+
+        }
+        button{
+            border:1px solid gray;
+            text-align: center;
+            color:blue;
+            width: 36px;
+            height: 32px;
+            margin:0 auto;
+
+        }
+        input{
+            width: 325px;
+            text-align: right;
+            padding:2px 0px;
+            color: cadetblue;
+        }
+        div{
+            margin-bottom:10px;
+        }
+
+        #resultValue{
+            border:1px solid black;
+            width: 232px;
+            height: 26px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <div id="resultValue">
+    </div>
+    <table >
+        <tr>
+            <td><button type="button" value="1">1</button></td>
+            <td><button type="button" value="2">2</button></td>
+            <td><button type="button" value="3">3</button></td>
+            <td><button type="button" value="+">+</button></td>
+        </tr>
+        <tr>
+            <td><button type="button" value="4">4</button></td>
+            <td><button type="button" value="5">5</button></td>
+            <td><button type="button" value="6">6</button></td>
+            <td><button type="button" value="-">-</button></td>
+        </tr>
+        <tr>
+            <td><button type="button" value="7">7</button></td>
+            <td><button type="button" value="8">8</button></td>
+            <td><button type="button" value="9">9</button></td>
+            <td><button type="button" value="*">x</button></td>
+        </tr>
+        <tr>
+            <td><button type="button" onclick="clean()">C</button></td>
+            <td><button type="button" value="0">0</button></td>
+            <td><button type="button" onclick="equal()">=</button></td>
+            <td><button type="button" value="/">/</button></td>
+        </tr>
+    </table>
+</form>
+<script>
+    let buttonClick = document.getElementsByTagName("button");
+    let resultValue = document.getElementById("resultValue");
+    let result = '';
+    function clean(){
+        //Nhấn nút C sẽ result lại từ đầu bằng cách gán kết quả thành chuỗi rỗng
+        result = '';
+    }
+    function equal(){
+
+        let inputValue = resultValue.innerHTML;
+
+        result = eval(inputValue);
+        resultValue.innerHTML = result;
+    };
+    for (let buttonElement of buttonClick) {
+        //Lặp qua từng button để gán sự kiện onlick
+        buttonElement.addEventListener('click',function(){
+            //Cứ mỗi khi click sẽ thêm  1 giá trị vào
+            result += buttonElement.value;
+            //Hiện giá trị vào ô result
+            resultValue.innerHTML = result;
+
+        })
+    }
+
+</script>
+</body>
+</html>

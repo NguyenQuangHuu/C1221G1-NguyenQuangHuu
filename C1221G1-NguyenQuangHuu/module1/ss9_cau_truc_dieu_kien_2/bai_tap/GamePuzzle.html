@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game puzzle</title>
+    <style>
+
+        img{
+        width: 220px;
+        height: 220px;
+        }
+
+        div{
+            border:1px solid gray;
+            margin:20px 0px;
+            float:left;
+            width: calc(33.33% - 2px);
+            text-align: center;
+
+        }
+    </style>
+</head>
+<body onload="init()">
+    <div>
+        <img src="img/phonebox.jpg" alt="Image 1">
+    </div>
+    <div>
+        <img src="img/autumnvillage.jpg" alt="Image 2">
+    </div>
+    <div>
+        <img src="img/phonebox.jpg" alt="Image 3">
+    </div>
+    <div>
+        <img src="img/phonebox.jpg" alt="Image 4">
+    </div>
+    <div>
+        <img src="img/snowyday.jpg" alt="Image 5">
+    </div>
+    <div>
+        <img src="img/phonebox.jpg" alt="Image 6">
+    </div>
+    <script>
+
+        function init(){
+            let image = document.getElementsByTagName("img");
+            for (let imageElement of image) {
+
+            imageElement.addEventListener('click',function(){
+                    if(imageElement.src === 'http://localhost:63342/module1/ss9_cau_truc_dieu_kien_2/bai_tap/img/phonebox.jpg'){
+                    imageElement.src = 'http://localhost:63342/module1/ss9_cau_truc_dieu_kien_2/bai_tap/img/autumnvillage.jpg';
+                            }else if(imageElement.src === 'http://localhost:63342/module1/ss9_cau_truc_dieu_kien_2/bai_tap/img/autumnvillage.jpg'){
+                    imageElement.src = 'http://localhost:63342/module1/ss9_cau_truc_dieu_kien_2/bai_tap/img/snowyday.jpg'
+                        }else{
+                    imageElement.src = 'http://localhost:63342/module1/ss9_cau_truc_dieu_kien_2/bai_tap/img/phonebox.jpg';
+                    }
+                })
+            }
+
+
+
+        }
+
+
+    </script>
+</body>
+</html>

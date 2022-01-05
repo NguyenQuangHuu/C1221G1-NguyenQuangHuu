@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="text-align: center">
+    <h2>Do you love me?</h2>
+    <div>
+        <button onclick="alert('I Love You too ! <3')">Yes</button>
+        <button onmouseover="changePosition()" id="noAnswer">NO</button>
+    </div>
+</div>
+<script>
+
+    document.getElementById("noAnswer").style.position = 'absolute';
+
+    function changePosition(){
+        let x = Math.floor(Math.random() * window.innerWidth)
+        let y = Math.floor(Math.random() * window.innerHeight)
+        document.getElementById("noAnswer").style.left = x + 'px';
+        document.getElementById("noAnswer").style.top= y + 'px';
+    }
+</script>
+</body>
+</html>

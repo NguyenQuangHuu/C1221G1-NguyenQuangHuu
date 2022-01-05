@@ -17,10 +17,10 @@
         <input type="text" name="secondNum" id="secondNum"/>
     </div>
     <div>
-        <button type="button" id="add" value="+">Addition(+)</button>
-        <button type="button" id="sub" value="-">Subtraction(-)</button>
-        <button type="button" id="multi" value="*">Multiplication(*)</button>
-        <button type="button" id="div" value="/">Division(/)</button>
+        <button type="button" id="add" value="+" onclick="calculator('+')">Addition(+)</button>
+        <button type="button" id="sub" value="-" onclick="calculator('-')">Subtraction(-)</button>
+        <button type="button" id="multi" value="*" onclick="calculator('*')">Multiplication(*)</button>
+        <button type="button" id="div" value="/" onclick="calculator('/')">Division(/)</button>
     </div>
     <div id="result">
 
@@ -67,7 +67,18 @@
     //     var result = firstNum / secondNum;
     //     resultOp.innerHTML = 'Kết quả phép tính là : ' +  result;
     // });
+    function calculator(value){
+        let result = document.getElementById('result');
+        let firstNum = parseInt(document.getElementById('firstNum').value);
+        let secondNum = parseInt(document.getElementById('secondNum').value);
+        switch(value){
+            case '+': result.innerHTML = (firstNum + secondNum); break;
+            case '-': result.innerHTML = (firstNum - secondNum); break;
+            case '*': result.innerHTML = (firstNum * secondNum); break;
+            case '/': result.innerHTML = (firstNum / secondNum); break;
+        }
 
+    }
 </script>
 </body>
 </html>

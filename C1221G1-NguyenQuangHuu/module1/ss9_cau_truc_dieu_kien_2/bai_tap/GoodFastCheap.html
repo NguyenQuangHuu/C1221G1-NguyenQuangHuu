@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Good-Fast-Cheap</title>
+</head>
+<body onload="showHandle()">
+<input type="checkbox" name="good" id="good" onclick="showHandle()"> GOOD <br>
+<input type="checkbox" name="fast" id="fast" onclick="showHandle()"> FAST <br>
+<input type="checkbox" name="cheap" id="cheap" onclick="showHandle()"> CHEAP <br>
+<script>
+
+
+    function showHandle(){
+        let goodCheck = document.getElementById('good');
+        let fastCheck = document.getElementById('fast');
+        let cheapCheck = document.getElementById('cheap');
+
+
+        if(goodCheck.checked){
+            if(fastCheck.checked && cheapCheck.checked){
+                fastCheck.checked = false;
+            }
+        }
+
+
+
+
+        // if(!goodCheck.checked){
+        //     if(fastCheck.checked && cheapCheck.checked){
+        //         fastCheck.checked = false;
+        //     }else{
+        //         goodCheck.checked = true;
+        //     }
+        //
+        // }else{
+        //     goodCheck.checked = true;
+        // }
+        //
+        // if(!fastCheck.checked) {
+        //     if (goodCheck.checked && cheapCheck.checked) {
+        //         cheapCheck.checked = false;
+        //         } else {
+        //         fastCheck.checked = true;
+        //     }
+        // }else{
+        //         fastCheck.checked = true;
+        // }
+        //
+        //
+        //     if (!cheapCheck.checked) {
+        //         if (goodCheck.checked && fastCheck.checked) {
+        //             goodCheck.checked = false;
+        //         } else {
+        //
+        //             cheapCheck.checked = true;
+        //         }
+        //     }else {
+        //         cheapCheck.checked = true;
+        //     }
+
+        // console.log(goodCheck.checked,fastCheck.checked,cheapCheck.checked);
+
+    }
+</script>
+</body>
+
+</html>
