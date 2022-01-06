@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7</title>
+</head>
+<body>
+<script>
+    let time = prompt('Nhập thời gian gọi đã sử dụng trong tháng');
+    let summary = 0;
+    if(time>50){
+        summary = 19*2000 + 30*2500 + (time-50)*3000;
+    }else if(time>30){
+        summary = 19*2000 + (time-30) * 2500;
+    }else{
+        summary = time*2000;
+    }
+    alert(summary);
+</script>
+</body>
+</html>

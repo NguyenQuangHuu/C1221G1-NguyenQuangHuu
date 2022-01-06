@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 12 Tính tiền lãi vay ngân hàng</title>
+</head>
+<body>
+<script>
+    let soTienVay = prompt('Nhập số tiền vay (đơn vị triệu)? ');
+    let laiSuatVay = prompt('Nhập lãi suất vay trên 1 năm?');
+    let thoiGianVay = prompt('Nhập thời gian vay');
+    let tongTienTra = 0;
+    for(let i = 1;i<= thoiGianVay;i++){
+        tongTienTra+=(soTienVay*(1+((laiSuatVay/100)/12)));
+    }
+    alert(tongTienTra);
+</script>
+</body>
+</html>

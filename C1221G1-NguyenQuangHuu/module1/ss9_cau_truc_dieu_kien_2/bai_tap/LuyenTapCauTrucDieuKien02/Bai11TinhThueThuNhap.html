@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 11 Tính thuế thu nhập cá nhân</title>
+</head>
+<body>
+<script>
+    let income = prompt('Nhập tổng thu nhập trong 1 năm của 1 cá nhân nào đó: ');
+    let thueThuNhap = 0;
+    if(income<100){
+        alert('Vì thu nhập nhỏ hơn 100 triệu 1 năm nên số thuế bạn phải nộp là 0% thuế thu nhập, nên bạn không cần đóng thuế');
+    }else if(income<=200){
+        alert('Vì thu nhập lớn hơn 100 triệu nên số thuế bạn phải nộp là 10% tổng thu nhập của bạn trong 1 năm, cho nên số thuế bạn phải nộp' +
+            'sẽ là : '+(income*10/100)+ ' triệu');
+    }else alert('Thu nhập của bạn quá khủng vậy nên chúng tôi thu 20% thuế trên tổng thu nhập khủng khiếp của bạn,vậy nên tiền thuế bạn phải đóng là' +
+        ' '+(income*20/100)+ ' triệu');
+
+</script>
+</body>
+</html>
