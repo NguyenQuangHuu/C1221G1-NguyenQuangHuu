@@ -20,45 +20,63 @@
         }
     </style>
 </head>
-<body onload="init()">
+<body >
     <div>
-        <img src="img/phonebox.jpg" alt="Image 1">
+        <img src="img/phonebox.jpg" id="image1" alt="Image 1" onclick="changePic(this)">
     </div>
     <div>
-        <img src="img/autumnvillage.jpg" alt="Image 2">
+        <img src="img/autumnvillage.jpg" id="image2" alt="Image 2"  onclick="changePic(this)">
     </div>
     <div>
-        <img src="img/phonebox.jpg" alt="Image 3">
+        <img src="img/phonebox.jpg" id="image3" alt="Image 3"  onclick="changePic(this)">
     </div>
     <div>
-        <img src="img/phonebox.jpg" alt="Image 4">
+        <img src="img/phonebox.jpg" id="image4" alt="Image 4" onclick="changePic(this)">
     </div>
     <div>
-        <img src="img/snowyday.jpg" alt="Image 5">
+        <img src="img/snowyday.jpg" id="image5" alt="Image 5"  onclick="changePic(this)">
     </div>
     <div>
-        <img src="img/phonebox.jpg" alt="Image 6">
+        <img src="img/phonebox.jpg" id="image6" alt="Image 6" onclick="changePic(this)">
     </div>
+    <p id="result" style="border:none;text-align: center"></p>
     <script>
 
-        function init(){
-            let image = document.getElementsByTagName("img");
-            for (let imageElement of image) {
+            function changePic(element){
 
-            imageElement.addEventListener('click',function(){
-                    if(imageElement.src === 'http://localhost:63342/module1/ss9_cau_truc_dieu_kien_2/bai_tap/img/phonebox.jpg'){
-                    imageElement.src = 'http://localhost:63342/module1/ss9_cau_truc_dieu_kien_2/bai_tap/img/autumnvillage.jpg';
-                            }else if(imageElement.src === 'http://localhost:63342/module1/ss9_cau_truc_dieu_kien_2/bai_tap/img/autumnvillage.jpg'){
-                    imageElement.src = 'http://localhost:63342/module1/ss9_cau_truc_dieu_kien_2/bai_tap/img/snowyday.jpg'
-                        }else{
-                    imageElement.src = 'http://localhost:63342/module1/ss9_cau_truc_dieu_kien_2/bai_tap/img/phonebox.jpg';
+                if(element.src === 'http://localhost:63342/module1/ss9_cau_truc_dieu_kien_2/bai_tap/img/phonebox.jpg'){
+                    element.src = 'http://localhost:63342/module1/ss9_cau_truc_dieu_kien_2/bai_tap/img/autumnvillage.jpg'
+                }else if(element.src === 'http://localhost:63342/module1/ss9_cau_truc_dieu_kien_2/bai_tap/img/autumnvillage.jpg'){
+                    element.src = 'http://localhost:63342/module1/ss9_cau_truc_dieu_kien_2/bai_tap/img/snowyday.jpg';
+                }else{
+                    element.src = 'http://localhost:63342/module1/ss9_cau_truc_dieu_kien_2/bai_tap/img/phonebox.jpg'
+                }
+
+                let image1 = document.getElementById('image1').src;
+
+                let image2 = document.getElementById('image2').src;
+                let image3 = document.getElementById('image3').src;
+                let image4 = document.getElementById('image4').src;
+                let image5 = document.getElementById('image5').src;
+                let image6 = document.getElementById('image6').src;
+
+                if(image1===image2&&image2===image3&&image3===image4&&image4===image5&&image5===image6&&image6===image1){
+                    let a = document.getElementsByTagName("div");
+                    for (let elementA of a) {
+                        elementA.style.backgroundColor = 'lightblue';
                     }
-                })
+                    document.getElementById('result').innerText = 'WINNER'
+                }else{
+                    let a = document.getElementsByTagName("div");
+                    for (let elementA of a) {
+                        elementA.style.backgroundColor = 'transparent';
+                    }
+                    document.getElementById('result').innerText = '';
+                }
             }
 
 
 
-        }
 
 
     </script>
