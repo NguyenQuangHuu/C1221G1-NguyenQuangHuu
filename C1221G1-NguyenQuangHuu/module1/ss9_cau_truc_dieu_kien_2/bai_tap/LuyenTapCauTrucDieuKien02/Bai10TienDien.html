@@ -8,8 +8,9 @@
 <script>
     let kwhUsed = prompt('Nhập số kilowatt đã sử dụng : ');
     let sum = 0;
-    if(kwhUsed < 51) {sum = kwhUsed*1678};
-    if(kwhUsed < 101) {
+    if(kwhUsed < 51) {
+        sum = kwhUsed*1678}
+    else if(kwhUsed < 101) {
         sum = 50*1678 + (kwhUsed-50)*1734;
     }else if(kwhUsed<201){
         sum = 50*1678 + 50*1734 + (kwhUsed-100)*2014;

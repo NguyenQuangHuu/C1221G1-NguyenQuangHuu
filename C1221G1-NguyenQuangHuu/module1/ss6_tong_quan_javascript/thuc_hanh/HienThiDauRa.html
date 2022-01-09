@@ -8,15 +8,25 @@
     <title>Thực hành hiển thị đầu ra JS</title>
 </head>
 <body>
-    <div id="messageDiv"></div>
+    <p style="color:red" id="messageDiv">ABC</p>
     <button type="button" onclick="showMessage()">Click me!</button>
+    <input type="button" value="Click input" onclick="changeColor()">
     <script>
+
+
         function showMessage(){
             // alert('xin chào các bạn!');
-            // document.getElementById("messageDiv").innerHTML = 'Chao xìn!';
+
+            document.getElementById("messageDiv").innerHTML = '<h3 style="color: cadetblue">Chao xìn!</h3>';
             // document.write('Xao chìn!');
-            console.log('Xìn Chao!');
+            // console.log('Xìn Chao!');
+            let a = document.getElementById("messageDiv");
+            console.log(a.style.color);
         }
+        function changeColor(){
+            alert('abc');
+        }
+
     </script>
 </body>
 </html>
