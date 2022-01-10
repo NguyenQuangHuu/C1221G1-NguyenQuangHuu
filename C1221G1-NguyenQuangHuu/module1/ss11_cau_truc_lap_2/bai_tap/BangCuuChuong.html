@@ -15,8 +15,9 @@
     for(let i = 1 ; i<10;i++){
         data+='<tr>';
         for(let j = 1; j< 10;j++){
-            data+='<td>'+i+' x '+j+' = ' + (i*j)+'</td>';
+            data+='<td>'+j+' x '+i+' = ' + (i*j)+'</td>';
         }
+        data+='</tr>'
     }
     document.getElementById('result').innerHTML = data;
 </script>
