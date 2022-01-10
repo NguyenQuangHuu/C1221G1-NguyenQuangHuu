@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính tổng các số fibonacci</title>
+</head>
+<body>
+<script>
+   let f0 = 0;
+   let f1 = 1;
+   let temp = 1;
+   let text = '2';
+   for(let i = 2; i<20;i++){
+       f0=f1;
+       f1=temp;
+       temp=f0+f1;
+       text += '+'+  temp;
+   }
+   alert("Tong cua 20 so fibonacci dau tien: " + eval(text));
+</script>
+</body>
+</html>

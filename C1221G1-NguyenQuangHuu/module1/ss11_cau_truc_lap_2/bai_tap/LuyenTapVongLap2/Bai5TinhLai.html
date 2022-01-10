@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let month =  parseInt(prompt('Nhập kì hạn'));
+    let soTienVay = parseInt(prompt('Nhập số tiền vay'));
+    let laiSuat =  parseFloat(prompt('Nhập lãi suất 1 năm'));
+
+    for(let i = 1 ; i<=month;i++){
+        let laiSuatThang = soTienVay*laiSuat/12;
+        console.log(laiSuatThang)
+        soTienVay = (soTienVay+laiSuatThang);
+        console.log(soTienVay);
+
+    }
+    alert('Số tiền dư nợ cần trả trong kỳ hạn là: '+soTienVay);
+
+</script>
+</body>
+</html>

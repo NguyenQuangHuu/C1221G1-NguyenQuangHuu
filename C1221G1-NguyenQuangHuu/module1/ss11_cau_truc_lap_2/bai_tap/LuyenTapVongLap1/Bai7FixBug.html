@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p  id="ketQua"></p>
+<script>
+    let text = '';
+    for(let i = 1;i<=100;i++){
+        text+= ' '+check(i);
+
+    }
+    function check(n){
+        if(n%3===0 && n%5===0){
+            return 'FIX-BUG';
+        } else if(n%3===0){
+            return 'FIX';
+        }
+        else if(n%5===0){
+            return 'BUG';
+        }
+        else{
+            return n;
+        }
+    }
+
+    document.getElementById("ketQua").innerHTML = 'Sau xử lí : '+text;
+
+</script>
+</body>
+</html>

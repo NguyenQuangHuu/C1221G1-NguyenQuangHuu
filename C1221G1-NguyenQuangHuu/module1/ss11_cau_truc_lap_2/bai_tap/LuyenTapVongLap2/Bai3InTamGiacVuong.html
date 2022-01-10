@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="1"></p>
+<p id="2" ></p>
+<p id="3" style="text-align: right"></p>
+<p id="4" style="text-align: right"></p>
+<script>
+    let text = '*';
+    for(let i = 0;i<=5;i++){
+
+        for(let j = 0 ; j<i;j++){
+            document.write(text);
+        }
+        document.write('<br>');
+    }
+    document.write('<hr>');
+    for(let i = 5;i>0;i--){
+        for(let j = 0 ; j<i;j++){
+            document.write(text);
+        }
+        document.write('<br>');
+    }
+
+    document.write('<hr>');
+    for(let i = 0;i<=5;i++){
+        for(let j = i;j<5;j++){
+            document.write('&nbsp;&nbsp;')
+        }
+        for(let j = 0 ; j<i;j++){
+            document.write(text);
+        }
+        document.write('<br>');
+    }
+    document.write('<hr>');
+    for(let i = 5;i>0;i--){
+        for(let j =i;j<5;j++){
+            document.write('&nbsp;&nbsp;')
+        }
+        for(let j = 0 ; j<i;j++){
+            document.write(text);
+        }
+
+        document.write('<br>');
+    }
+
+
+</script>
+</body>
+</html>

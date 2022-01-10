@@ -5,6 +5,20 @@
     <title>Title</title>
 </head>
 <body>
+<h3 style="text-align: center">Bảng cửu chương</h3>
+<div id="result" style="text-align: left; ">
 
+</div>
+<script>
+    let data = '';
+    data += '<table border="1" style="border-collapse: collapse;margin:0 auto;width: 100%" cellpadding="4" >'
+    for(let i = 1 ; i<10;i++){
+        data+='<tr>';
+        for(let j = 1; j< 10;j++){
+            data+='<td>'+i+' x '+j+' = ' + (i*j)+'</td>';
+        }
+    }
+    document.getElementById('result').innerHTML = data;
+</script>
 </body>
 </html>
