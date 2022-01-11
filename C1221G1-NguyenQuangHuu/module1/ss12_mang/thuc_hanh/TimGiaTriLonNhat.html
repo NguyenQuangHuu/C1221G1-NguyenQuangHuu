@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numbers = [3,-1,6,4,9,2,0,12];
+    let max = numbers[0];
+    let index = 0;
+    for(let i = 1; i<numbers.length;i++){
+        if(max<numbers[i]){
+            max = numbers[i];
+            index = i;
+        }
+    }
+    alert('max: '+max+ " at position "+index);
+</script>
+</body>
+</html>

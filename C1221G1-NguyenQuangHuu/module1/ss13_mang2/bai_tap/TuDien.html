@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="textValue">
+<input type="button" value="Tìm kiếm" onclick="searching()">
+<p id="result"></p>
+<script>
+    let vietnamese = ['bản đồ','tin tức','cặp sách','vở','bút chì','ghế','bàn'];
+    let english = ['maps','news','bag','notebook','pencil','chair','table'];
+
+    function searching(){
+        let text;
+        let result = document.getElementById('result');
+        let value = document.getElementById('textValue').value.toLowerCase();
+        let index = english.indexOf(value);
+
+        if(index !== -1){
+            text = vietnamese[index];
+            result.innerHTML = text;
+        }else{
+            alert('Không tìm thấy dữ liệu');
+            result.innerHTML = '';
+            document.getElementById('textValue').value = '';
+        }
+
+
+    }
+
+</script>
+</body>
+</html>

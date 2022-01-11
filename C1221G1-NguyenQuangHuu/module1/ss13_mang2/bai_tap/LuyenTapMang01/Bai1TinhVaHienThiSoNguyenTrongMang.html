@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let dem = 1;
+    while(arr.length<10){
+        let element = prompt('Nhập phần tử thứ '+dem+' cho mảng');
+        arr.push(element);
+        dem++;
+    }
+    let count = 0;
+    let text = '';
+    for(let i = 0 ; i < arr.length;i++){
+        if(arr[i]>=10){
+            count++;
+            text+=arr[i]+', ';
+        }
+    }
+    alert('Có '+count+' phần tử lớn hơn hoặc bằng 10 là '+text);
+</script>
+</body>
+</html>

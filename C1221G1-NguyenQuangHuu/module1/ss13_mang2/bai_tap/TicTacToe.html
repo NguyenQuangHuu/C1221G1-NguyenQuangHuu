@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            padding-top:200px;
+        }
+        table{
+            border-collapse: collapse;
+            border:1px solid green;
+            outline:none;
+            margin: 0 auto;
+        }
+        td{
+            width: 40px;
+            height: 40px;
+            border:1px solid green;
+            outline:none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<p id="playerTurn"></p>
+<div id="data"></div>
+</body>
+<script>
+    let sizeBoard = 4;
+    let board = '<table>';
+    for(let i = 0; i<sizeBoard; i++){
+        board += '<tr>'
+        for(let j = 0;j<sizeBoard;j++){
+            board+='<td onclick="changeValue(this)">'+'&nbsp;&nbsp;'+'</td>';
+        }
+        board += '</tr>'
+    }
+    board+='</table>'
+    let show = document.getElementById('data');
+    show.innerHTML = board;
+
+
+    let turnBase = true;
+    let player1Move = [];
+    let player2Move = [];
+    function changeValue(element){
+        let base = document.getElementById('playerTurn');
+        turnBase ? base.innerText = 'Player 1 Turn' : base.innerText = 'Player 2 Turn';
+        turnBase = !turnBase;
+        turnBase ? (element.innerText = 'X') : (element.innerText = 'O');
+    }
+</script>
+</html>

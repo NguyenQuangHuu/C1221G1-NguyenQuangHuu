@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h3{
+            text-align: center;
+        }
+        textarea{
+            display:block;
+            margin:0 auto;
+        }
+    </style>
+</head>
+<body>
+<h3>Type everything slowly</h3>
+<textarea name="textArea" id="textArea" cols="30" rows="10" onkeypress="fakingText()"></textarea>
+<script>
+    let emptyText = '';
+    let exampleText = ' Bạn là kẻ ngốc!!!';
+    let arr = [];
+    for(let i = 0; i < exampleText.length;i++){
+        arr.push(exampleText[i]);
+    }
+
+
+    function fakingText(){
+
+        let fake = document.getElementById('textArea').value;
+        let j = fake.length;
+        if(j>0){
+            for(let i = 1; i<=j;i++){
+                emptyText+=arr[i];
+                if(i>17){
+                    document.getElementById('textArea').value ='';
+                    emptyText = ''
+                }
+            }
+        }
+        document.getElementById('textArea').value = emptyText;
+        emptyText = '';
+        setTimeout("fakingText()",1);
+
+    }
+</script>
+</body>
+</html>

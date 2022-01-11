@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let text = prompt('Nhập chuỗi kí tự cần chuyển đổi');
+    let news = [];
+    for(let i = 0;i< text.length;i++){
+        if(text[i] === text[i].toLowerCase()){
+            let a = text[i].toUpperCase();
+            news.push(a);
+        }else{
+            let a = text[i].toLowerCase();
+            news.push(a);
+        }
+    }
+    alert('Dãy số sau chuyển đổi là : '+news.join(''));
+</script>
+</body>
+</html>
