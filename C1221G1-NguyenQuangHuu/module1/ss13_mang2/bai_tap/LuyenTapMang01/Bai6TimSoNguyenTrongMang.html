@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let flag;
+    let num;
+    do{
+        num = parseInt(prompt('Nhập số Nguyên cần tìm trong mảng'));
+        flag = (parseInt(num)===num) && num >0;
+    }while(!flag);
+
+
+    let arr = [];
+    let dem = 1;
+    while(arr.length<10){
+        let value = parseInt(prompt('Nhập giá trị ở vị trí thứ '+dem+' của mảng'));
+        arr.push(value);
+        dem++;
+    }
+    console.log(arr);
+    if(arr.indexOf(num) !== -1){
+        alert(num+' is in the array');
+    }else{
+        alert(num+' is not in the array');
+    }
+</script>
+</body>
+</html>

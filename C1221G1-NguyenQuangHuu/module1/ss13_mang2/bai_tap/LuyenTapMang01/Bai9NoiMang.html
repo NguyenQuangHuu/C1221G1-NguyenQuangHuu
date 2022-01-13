@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arrayA = [];
+    let arrayB = [];
+    let arrayC;
+    let lengthA = arrayA.length;
+    let lengthB = arrayB.length;
+
+    while(arrayA.length<10){
+        let elementA = parseInt(prompt('Nhập giá trị cho mảng A'));
+        arrayA.push(elementA);
+    }
+    while(arrayB.length<10){
+        let elementB = parseInt(prompt('Nhập giá trị cho mảng B'));
+        arrayB.push(elementB);
+    }
+
+    arrayC=arrayA.concat(arrayB);
+    alert('Mảng C sau khi nối là '+ arrayC);
+</script>
+</body>
+</html>

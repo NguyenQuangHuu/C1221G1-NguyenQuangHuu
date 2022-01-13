@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let flag;
+    let num;
+    do{
+        num = parseInt(prompt('Nhập số Nguyên cần xóa trong mảng'));
+        flag = (parseInt(num)===num) && num >0;
+    }while(!flag);
+
+
+    let arr = [];
+    let dem = 1;
+    while(arr.length<num){
+        let value = parseInt(prompt('Nhập giá trị ở vị trí thứ '+dem+' của mảng'));
+        arr.push(value);
+        dem++;
+    }
+    alert(arr);
+    let length = arr.length;
+
+    for(let i = 0 ; i<length;i++){
+        if(arr[i]===num){
+            for(let j = i;j<length-1;j++){
+                arr[i]=arr[j+1];
+
+            }
+            arr[length-1]=0;
+            i--;
+        }
+    }
+
+    // if(index!==-1){
+    //     arr.splice(index,count);
+    //     for(let i = 0; i<count;i++){
+    //         arr.push(0);
+    //     }
+    // }
+    console.log(arr);
+</script>
+</body>
+</html>

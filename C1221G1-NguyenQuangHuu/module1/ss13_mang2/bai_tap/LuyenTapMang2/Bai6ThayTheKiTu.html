@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt('Nhập số phần tử mảng cần khai báo'))
+    let arr = [];
+    let dem = 0
+    ;
+    while(arr.length<n){
+        let value = prompt('Nhập giá trị ở vị trí thứ '+dem+' của mảng');
+        arr.push(value);
+        dem++;
+    }
+    let length = arr.length;
+    for(let i = 0; i<length;i++){
+        if(arr[i]==="-" || arr[i]==="--" || arr[i]==="---"){
+            arr[i]="_";
+        }
+    }
+    console.log(arr);
+</script>
+</body>
+</html>

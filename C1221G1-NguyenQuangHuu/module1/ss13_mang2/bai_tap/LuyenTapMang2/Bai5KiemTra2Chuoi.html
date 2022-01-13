@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let stringA = prompt('Nhập chuỗi A - Chương trình sẽ bỏ qua dấu cách ở đầu và cuối chuỗi -');
+    let stringB = prompt('Nhập chuỗi B - Chương trình sẽ bỏ qua dấu cách ở đầu và cuối chuỗi -');
+    let lengthA = stringA.trim().length;
+    let lengthB = stringB.trim().length;
+    console.log(lengthA);
+    console.log(lengthB);
+    if(lengthA!==lengthB){
+        console.log('2 chuỗi khác nhau về độ dài nên 2 chuỗi là khác nhau');
+    }else{
+        // bài này về mảng nên em tách nó ra mảng làm ạ
+        let arrayA = stringA.split('');
+        let arrayB = stringB.split('');
+        let check = true;
+        for(let i = 0; i < arrayA.length;i++){
+            if(arrayA[i]!==arrayB[i]){
+
+                check = false;
+                break;
+            }
+        }
+        console.log(check);
+        if(!check){
+            alert('2 chuỗi không giống nhau');
+        }else{
+            alert('2 chuỗi giống nhau');
+        }
+    }
+
+</script>
+</body>
+</html>
