@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let answer = confirm('Ăn cơm hem?');
+    let answerFinish = answerSubmit(answer);
+    function answerSubmit(confirm) {
+        let text = '';
+            if(confirm){
+                text = '50k bạn êi';
+            }else {
+                text = 'Không ăn đói đấy bạn êi';
+            }
+            return text;
+    }
+
+    alert(answerFinish);
+</script>
+</body>
+</html>

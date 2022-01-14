@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý sản phẩm</title>
+    <style>
+        table{
+            text-align: center;
+            border:1px solid gray;
+        }
+        td:first-child{
+            text-align: left;
+            padding:10px 6px;
+
+        }
+        tr:nth-child(even){
+            background-color: lightgray;
+
+        }
+
+        input[type='button']{
+            outline:none;
+            border:none;
+            color:white;
+            background-color: limegreen;
+            padding:12px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        input[type='text']{
+            padding : 6px 0px
+        }
+        p{
+            font-size:20px;
+            font-weight: bold;
+            padding-left: 10px;
+            color:gray;
+        }
+
+        #countProduct{
+            position: absolute;
+            right:45%;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="info">
+    <label for="inputProduct"><h2>Add New Product</h2></label><br>
+<input type="text" id="inputProduct">
+<input type="button" value="ADD" id="buttonClick" onclick="addNewProduct()">
+</div>
+<div>
+    <h3>Display All Product</h3>
+    <p>Product Name <span id="countProduct"></span></p>
+
+    <table id="tableProduct"  width="60%">
+
+    </table>
+</div>
+<script>
+    let productArray = ['Iphone 13 Pro Max','Iphone 13 Pro','Iphone 13','Iphone 13 Mini','Iphone 12 Pro Max',
+                        'Iphone 12 Pro Max','Iphone 12 Pro','Iphone 12','Iphone 12 Mini'];
+
+    let count = document.getElementById("countProduct");
+
+    function showProduct(){
+        let tableProduct = document.getElementById("tableProduct");
+        count.innerHTML = (productArray.length === 0 ? 'Out of Stocks' :  productArray.length + ' Products');
+        let table = '<tr>'
+        for(let i = 0 ; i < productArray.length;i++) {
+
+            table += '<td  colspan="3" style="font-weight: bold">' + productArray[i] + '</td>' +
+
+                '<td><input type="button" value="Edit Product" onclick="editProduct('+i+')"></td>' +
+
+                '<td><input type="button" value="Delete Product" onclick="deleteProduct('+i+')"></td>'
+            table += '</tr>'
+        }
+        if(productArray.length===0){
+            return tableProduct.innerHTML = 'KHÔNG CÓ SẢN PHẨM NÀO';
+        }else{
+            return tableProduct.innerHTML = table;
+        }
+
+    }
+    showProduct();
+
+
+    function addNewProduct(){
+        let product = document.getElementById("inputProduct").value;
+        productArray.push(product);
+        document.getElementById("inputProduct").value = '';
+        showProduct();
+    }
+
+    let info = document.getElementById("info").innerHTML;
+
+    function editProduct(i){
+
+        document.getElementById("info").innerHTML += '<input type="button" value="SAVE" onclick="saveItem('+i+')">';
+        document.getElementById("inputProduct").value = productArray[i];
+
+    }
+
+    function saveItem(i){
+        let value = document.getElementById('inputProduct').value;
+        console.log(value,i);
+        productArray[i] = value;
+
+        document.getElementById('inputProduct').value = "";
+        document.getElementById("info").innerHTML = info;
+        showProduct();
+    }
+
+
+
+
+    function deleteProduct(i){
+        productArray.splice(i,1);
+        showProduct();
+    }
+
+
+</script>
+
+</body>
+</html>

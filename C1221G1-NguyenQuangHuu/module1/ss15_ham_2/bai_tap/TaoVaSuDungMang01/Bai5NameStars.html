@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+    let name = prompt('Enter a name');
+    function recall(ele){
+        let nameStars = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+        let star = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major','Leo'];
+        let index = nameStars.indexOf(ele);
+        if(index !== -1){
+            return star[index];
+        }else{
+            return 'No Exist';
+        }
+    }
+
+    document.write(recall(name));
+
+</script>
+</body>
+</html>

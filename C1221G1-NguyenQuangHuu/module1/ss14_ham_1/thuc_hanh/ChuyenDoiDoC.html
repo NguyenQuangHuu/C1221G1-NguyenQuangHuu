@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Temperature Converter</h3>
+<p>Type a value in the Fahrenheit field to covert the value Celcius</p>
+<label for="inputValue">Fahrenheit</label><input type="number" id="inputValue" oninput="convertFtoC()">
+<p id="result"></p>
+<!--Có thể dùng this.value để truyền đối số value vào cho hàm khi sự kiện xảy ra-->
+<script>
+
+    function convertFtoC(){
+        let F = document.getElementById('inputValue').value;
+        let result = document.getElementById('result');
+        let C = (F-32)/(9/5);
+        return result.innerHTML = 'Celcius: ' + C;
+    }
+</script>
+</body>
+</html>

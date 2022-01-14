@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array = ['a','c','z','g','g','c','g','j','k','t'];
+    let value = prompt('Nhập kí tự cần kiểm tra');
+    function countCharacter(arr,char){
+        let count = 0;
+        console.log(arr);
+        for(let i = 0; i < arr.length;i++){
+            if(arr[i] === char){
+                count++;
+            }
+        }
+        return count;
+    }
+    alert(countCharacter(array,value));
+</script>
+</body>
+</html>

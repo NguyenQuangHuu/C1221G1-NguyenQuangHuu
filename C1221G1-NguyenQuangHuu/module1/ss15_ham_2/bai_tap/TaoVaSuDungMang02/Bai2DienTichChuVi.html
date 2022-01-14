@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let r = parseFloat(prompt('Nhập bán kính đường tròn ( đường kính /2 )'));
+    const PI = 3.14;
+    function tinhDienTich(banKinh){
+        let result = banKinh*banKinh*PI;
+        return result;
+    }
+    function tinhChuVi(banKinh){
+        let result = 2*PI*banKinh;
+        return result
+    }
+
+    let area = tinhDienTich(r);
+    let circumference = tinhChuVi(r);
+    alert('Diện tích hình chữ nhật bán kính '+r+' là '+ area+ ' và chu vi là '+ circumference);
+</script>
+</body>
+</html>

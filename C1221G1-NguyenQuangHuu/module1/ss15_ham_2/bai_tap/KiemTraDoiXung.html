@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let text = 'abccc dd cccba';
+    function isPalindrome(param){
+        let fullLength = param.length;
+        let halfLength = Math.floor(param.length/2);
+        console.log(halfLength);
+        console.log(fullLength);
+        let text1 = '';
+        let text2 = '';
+        for(let i = 0 ; i<halfLength;i++){
+            text1+=param[i];
+        }
+        if(fullLength%2!==0){
+            for(let i = fullLength -1 ; i> halfLength;i--){
+                text2+=param[i];
+            }
+        }else{
+            for(let i = fullLength -1 ; i>= halfLength;i--){
+                text2+=param[i];
+            }
+        }
+
+
+        if(text1===text2){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    let result = isPalindrome(text);
+
+    alert(result);
+</script>
+</body>
+</html>

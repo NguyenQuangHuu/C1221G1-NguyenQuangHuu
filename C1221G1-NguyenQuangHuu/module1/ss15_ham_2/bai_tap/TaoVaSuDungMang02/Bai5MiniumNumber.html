@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let A = parseInt(prompt('NHập số a'));
+    let B= parseInt(prompt('NHập số b'));
+    let C = parseInt(prompt('NHập số c'));
+    function getMinimumNumber(a,b,c){
+        if(a<b&&a<c){
+            return a;
+        }else if(b<c){
+            return b;
+        }else{
+            return c;
+        }
+    }
+
+    let min = getMinimumNumber(A,B,C);
+    alert(min);
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array = [4,6,2,8,9,1];
+    function reverseArray(arr){
+        let length = arr.length;
+        for(let i = 0 ; i< length;i++){
+            let temp = arr[i];
+            arr[i] = arr[length-1];
+            arr[length-1]= temp;
+            length--;
+        }
+        return arr;
+    }
+    console.log(reverseArray(array));
+</script>
+</body>
+</html>
