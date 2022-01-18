@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Temperature{
+        constructor(celsius) {
+            if(celsius<-273){
+                alert('Không tính được');
+            }
+            this.celcius = celsius;
+        }
+
+        getCelsius(){
+            return this.celcius;
+        }
+        setCelsius(celsius){
+            this.celcius = celsius;
+        }
+        temperatureCToF(){
+            return this.celcius*9/5+32;
+        }
+        temperatureCToK(){
+            return this.celcius+273.15;
+        }
+    }
+
+    let temp = new Temperature(25);
+    console.log(temp.getCelsius());
+
+    console.log(temp.temperatureCToF());
+    console.log(temp.temperatureCToK());
+
+    temp.setCelsius(39);
+    console.log(temp.temperatureCToF());
+    console.log(temp.temperatureCToK());
+</script>
+</body>
+</html>
