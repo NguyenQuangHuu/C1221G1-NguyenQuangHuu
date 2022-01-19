@@ -7,10 +7,67 @@
 <body>
 <script>
     class Phone{
-        constructor(battery,draftMessage,inboxMessage,sentMessage){
+        constructor(){
+            this.pin = 100;
+            this.trangThai = true // đang bật;
+            this.vungSoanTin='';
+            this.vungTinDaGui = [];
+            this.vungTinDen = [];
+        }
+        getTrangThai(){
+            return this.trangThai;
+        }
+
+        turnOnOff(){
+            // if(this.trangThai){
+            //     this.trangThai=false;
+            // }else{
+            //     this.trangThai=true;
+            // }
+            this.trangThai = !this.trangThai;
+        }
+        chargeBattery(){
+            if(this.pin<10){
+                this.pin=100;
+            }
 
         }
+
+        soanTin(message){
+            this.vungSoanTin = message;
+        }
+
+        nhanTinNhan(message){
+            this.pin--;
+            this.vungTinDen.push(message);
+        }
+        guiTinNhan(dienThoaiKhac,message){
+            this.pin--;
+            this.soanTin(message);
+            this.vungTinDaGui.push(this.vungSoanTin);
+            this.vungSoanTin= '';
+            dienThoaiKhac.nhanTinNhan(this.vungTinDaGui[this.vungTinDaGui.length-1]);
+        }
+
+        hienThiHopThuDen(){
+            for(let i = 0; i < this.vungTinDen.length ;i++){
+                console.log((i+1) + ". "+ this.vungTinDen[i]);
+            }
+        }
     }
+
+    let iphone = new Phone();
+    let nokia = new Phone();
+
+    iphone.guiTinNhan(nokia,"Hello from iphone");
+
+
+
+    nokia.guiTinNhan(iphone,"Hello from nokia")
+
+    iphone.guiTinNhan(nokia," Bạn khỏe chưa?");
+    nokia.hienThiHopThuDen();
+    // iphone.hienThiHopThuDen();
 </script>
 </body>
 </html>

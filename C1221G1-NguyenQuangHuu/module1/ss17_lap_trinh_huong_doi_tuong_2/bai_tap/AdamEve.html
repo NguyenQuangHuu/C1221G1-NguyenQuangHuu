@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Apple{
+        constructor() {
+            this.weight = 10;
+        }
+        getWeight(){
+            return this.weight;
+        }
+
+        decrease(){
+            this.weight--;
+        }
+        isEmpty(){
+            return this.weight <= 0;
+        }
+    }
+
+
+    class Human{
+        constructor(name,gender,weight) {
+            this.name=name;
+            this.gender=gender;
+            this.weight=weight
+        }
+        getName(){
+            return this.name;
+        }
+
+        setName(name){
+            this.name = name
+        }
+
+        getGender(){
+            return this.gender;
+        }
+
+        setGender(gender){
+            this.gender = gender;
+        }
+        isMale(){
+            if(this.gender === true){
+                return 'Male'
+            }else{
+                return 'Female'
+            }
+        }
+        getWeight(){
+            return this.weight;
+        }
+
+        setWeight(weight){
+            this.weight = weight;
+        }
+
+        checkApple(apple){
+            if(apple.isEmpty()){
+                return 'Hết táo rồi , đi lụm thêm đi';
+            }else{
+                return true;
+            }
+        }
+
+        eat(apple){
+            this.weight+=0.1;
+            apple.weight-=1;
+        }
+
+        say(){
+            return `My name is ${this.name}`
+        }
+
+    }
+
+    let appleAmerican = new Apple();
+    console.log(appleAmerican.getWeight());
+    let adam = new Human('Adam',true,45.0);
+    let eva = new Human('Eva',false,39.5);
+    adam.eat(appleAmerican);
+    console.log(adam.getWeight());
+    console.log(appleAmerican.getWeight());
+    console.log(adam.checkApple(appleAmerican));
+    console.log(adam.isMale());
+    console.log(adam.say());
+    console.log(eva.say());
+    eva.eat(appleAmerican);
+    eva.eat(appleAmerican);
+    eva.eat(appleAmerican);
+    eva.eat(appleAmerican);
+    eva.eat(appleAmerican);
+    eva.eat(appleAmerican);
+    console.log(eva.checkApple(appleAmerican));
+    console.log(eva.getWeight());
+    console.log(appleAmerican.getWeight());
+</script>
+</body>
+</html>
