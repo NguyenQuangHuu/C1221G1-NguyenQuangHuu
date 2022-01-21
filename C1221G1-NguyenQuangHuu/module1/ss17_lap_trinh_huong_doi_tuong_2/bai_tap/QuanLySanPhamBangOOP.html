@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="table">
+
+</div>
+<script>
+    class Xe{
+        constructor(bienKS,chuSoHuu,dungTichXL) {
+            this.bienKS = bienKS;
+            this.chuSoHuu=chuSoHuu;
+            this.dungTichXL =dungTichXL;
+        }
+        getBienKS(){
+            return this.bienKS;
+        }
+        setBienKS(bienKS){
+            this.bienKS = bienKS;
+        }
+        getChuSoHuu(){
+            return this.chuSoHuu;
+        }
+        setChuSoHuu(chuSoHuu){
+            this.chuSoHuu = chuSoHuu;
+        }
+        getDungTichXL(){
+            return this.dungTichXL;
+
+        }
+
+        setDungTichXL(dungTichXL){
+            this.dungTichXL =dungTichXL;
+        }
+
+
+    }
+
+    let x1 = new Xe('43GG-123456','Trần Văn A',100);
+    let x2 = new Xe('43GG-234567','Trần Văn B',110);
+    let x3 = new Xe('43GG-345678','Trần Văn C',120);
+
+    let danhSachXe = [x1,x2,x3];
+    hienThi(danhSachXe);
+    function hienThi(list){
+        let table =
+            '<table border="1" style="text-align: center">' +
+            '   <tr>\n' +
+            '          <th>STT</th>\n' +
+            '          <th>BKS</th>\n' +
+            '          <th>Chủ sở hữu</th>\n' +
+            '          <th>Dung tích xi lanh</th>\n' +
+            '          <th colspan="2">Action</th>\n' +
+            // '          <th></th>\n' +
+            '</tr>\n';
+
+
+
+        for(let i = 0; i<list.length;i++){
+            table+='<tr>' +
+                '<td>'+(i+1)+'</td>' +
+                '<td>'+list[i].getBienKS()+'</td>' +
+                '<td>'+list[i].getChuSoHuu()+'</td>' +
+                '<td>'+list[i].getDungTichXL()+'</td>' +
+                '<td><input type="button" value="Edit"></td>' +
+                '<td><input type="button" value="Delete"></td>' +
+                ' </tr>';
+        }
+
+
+        table+='</table>';
+
+        document.getElementById('table').innerHTML = table;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Animal{
+        constructor(name,weight,speed) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+        }
+
+        say(text){
+            console.log(text);
+        }
+
+
+    }
+
+    class Rat extends Animal{
+        constructor(name,weight,speed,status) {
+            super(name,weight,speed);
+            this.status = status;
+        }
+
+        say(text){
+            console.log('Chuột kêu: '+text);
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(value) {
+            this.name = value;
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+
+        setWeight(value) {
+            this.weight = value;
+        }
+
+        getSpeed() {
+            return this.speed;
+        }
+
+        setSpeed(value) {
+            this.speed = value;
+        }
+    }
+
+    class Cat extends Animal{
+        constructor(name,weight,speed) {
+            super(name,weight,speed);
+        }
+
+        say(text){
+            console.log('Mèo kêu: '+text);
+        }
+
+        eatMouse(mouse){
+            if(mouse.status){
+                this.say('Bổ quá');
+                this.weight += mouse.weight;
+            }else{
+                this.say('Không phải đồ tươi');
+            }
+        }
+
+        catchMouse(mouse){
+            if(this.speed > mouse.speed){
+                this.say('Bắt được con chuột');
+                this.eatMouse(mouse);
+                mouse.status = false;
+            }else{
+                this.say('Chạy nhanh thế cu');
+                mouse.say('Tuổi tôm');
+            }
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(value) {
+            this.name = value;
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+
+        setWeight(value) {
+            this.weight = value;
+        }
+
+        getSpeed() {
+            return this.speed;
+        }
+
+        setSpeed(value) {
+            this.speed = value;
+        }
+    }
+
+
+//    Viết chương trình
+    let jerry = new Rat('Jerry',1.2,5,true);
+    let tom = new Cat('Tom',3.5,10);
+    tom.catchMouse(jerry);
+    console.log(tom.getWeight());
+</script>
+</body>
+</html>

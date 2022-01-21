@@ -24,7 +24,6 @@
     class SwitchButton{
         constructor() {
             this.status = false;
-            this.connector = false;
             this.lamp = null;
         }
 
@@ -40,23 +39,24 @@
 
         connectorElectricLamp(lamp){
            this.lamp = lamp;
-           this.connector = true;
+
         }
 
         switchOff(){
-            this.status=false;
-            if(this.connector === true){
+
+            if(this.status===true){
                 alert('Switches OFF')
                 this.lamp.status=false;
+                this.status=false;
             }
 
         }
 
         switchOn(){
-            this.status = true;
-            if(this.connector===true) {
+            if(this.status === false) {
                 alert('Switches ON');
                 this.lamp.status = true;
+                this.status= true;
             }
         }
     }

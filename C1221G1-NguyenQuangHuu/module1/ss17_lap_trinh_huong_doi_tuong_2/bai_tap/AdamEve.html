@@ -61,19 +61,24 @@
 
         checkApple(apple){
             if(apple.isEmpty()){
-                return 'Hết táo rồi , đi lụm thêm đi';
+                this.say('Táo đã hết')
+                return false;
             }else{
+                this.say('Táo vẫn còn')
                 return true;
             }
         }
 
         eat(apple){
-            this.weight+=0.1;
-            apple.weight-=1;
+            if(this.checkApple(apple)){
+                this.weight+=0.1;
+                apple.weight-=1;
+            }
+
         }
 
-        say(){
-            return `My name is ${this.name}`
+        say(text){
+            console.log(`${this.name}: ${text}`);
         }
 
     }
