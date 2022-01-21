@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let tuSo =[5,2,5,4,1,3];
+    let mauSo =[6,2,4,2,2,3];
+    let max;
+    max = tuSo[0]/mauSo[0];
+    let index ;
+    for(let i = 1 ; i<tuSo.length;i++){
+        if(max < tuSo[i]/mauSo[i]){
+            max = tuSo[i]/mauSo[i];
+            index = i;
+        }
+    }
+    console.log(tuSo[index]+'/'+mauSo[index]+' là phân số lớn nhất tại chỉ số : '+index);
+</script>
+</body>
+</html>

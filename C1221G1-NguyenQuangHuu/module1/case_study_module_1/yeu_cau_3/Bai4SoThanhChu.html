@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let inputValue;
+    do{
+        inputValue = prompt('Nhập chữ số bất kì để chuyển đổi thành chữ: ');
+    }while(inputValue===''||isNaN(inputValue));
+
+    let array = inputValue.split('');
+    let text = '';
+    console.log(array);
+    for(let i = 0; i<array.length;i++){
+        switch(array[i]){
+            case '1':
+                 text+='Một ';
+                 break;
+            case '2':
+                text+='Hai ';
+                break;
+            case '3':
+                text+='Ba ';
+                break;
+            case '4':
+                text+='Bốn ';
+                break;
+            case '5':
+                text+='Năm ';
+                break;
+            case '6':
+                text+='Sáu ';
+                break;
+            case '7':
+                text+='Bảy ';
+                break;
+            case '8':
+                text+='Tám ';
+                break;
+            case '9':
+                text+='Chín ';
+                break;
+            case '0':
+                text+='Không ';
+                break;
+        }
+
+    }
+    console.log(text);
+</script>
+</body>
+</html>

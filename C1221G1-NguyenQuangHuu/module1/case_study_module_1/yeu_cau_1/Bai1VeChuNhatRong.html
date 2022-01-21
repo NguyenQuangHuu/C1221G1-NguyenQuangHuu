@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let x = 4;
+    let y = 5;
+    for(let i = 0; i < x;i++) {
+
+                if( i > 0 && i < x - 1){
+                    for(let j=0;j<1;j++){
+                        document.write('*');
+                    }
+                    for(let j=1;j<x;j++){
+                        document.write('&nbsp;&nbsp;');
+                    }
+                    for(let j=x-1;j<x;j++){
+                        document.write('*');
+                    }
+                }else{
+                    for(let j=0;j < y;j++){
+                        document.write('*');
+                    }
+                }
+
+            document.write('<br>');
+
+    }
+</script>
+</body>
+</html>

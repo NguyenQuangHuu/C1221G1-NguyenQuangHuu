@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let choose;
+    let qty;
+
+    let sum = 0;
+    let price;
+    do{
+        choose = parseInt(prompt('1.Cafe\n' +
+            '2.Cam vắt\n' +
+            '3.Nước ép cà rốt\n' +
+            '4.Nước ép cà chua\n' +
+            '5.Nước lọc\n' +
+            '6.Nước dừa\n'+
+            '7.Thoát menu'));
+
+        switch(choose){
+
+            case 1 :
+                price = 12000;
+                qty = parseInt(prompt('Đơn Giá món: '+price+'\n' +
+                    'Nhập só lượng muốn đặt:'));
+                sum+=price*qty;
+                console.log(sum)
+                break;
+
+            case 2 :
+                price = 16000;
+                qty = parseInt(prompt('Đơn Giá món:'+price+'\n' +
+                    'Nhập só lượng muốn đặt:'));
+                sum+=price*qty;
+                console.log(sum)
+                break;
+            case 3 :
+                price = 18000;
+                qty = parseInt(prompt('Đơn Giá món: '+price+'\n' +
+                    'Nhập só lượng muốn đặt:'));
+                sum+=price*qty;
+                console.log(sum)
+                break;
+            case 4 :
+                price = 18000;
+                qty = parseInt(prompt('Đơn Giá món: '+price+'\n' +
+                    'Nhập só lượng muốn đặt:'));
+                sum+=price*qty;
+                console.log(sum)
+                break;
+            case 5 :
+                price = 10000;
+                qty = parseInt(prompt('Đơn Giá món: '+price+'\n' +
+                    'Nhập só lượng muốn đặt:'));
+                sum+=price*qty;
+                console.log(sum)
+                break;
+            case 6:
+                price=18000;
+                qty = parseInt(prompt('Đơn Giá món: '+price+'\n' +
+                    'Nhập só lượng muốn đặt:'));
+                sum+=price*qty;
+                console.log(sum)
+                break;
+        }
+
+    }while(choose!==7);
+    alert('Tổng tiền cần thanh toán là '+sum);
+</script>
+</body>
+</html>

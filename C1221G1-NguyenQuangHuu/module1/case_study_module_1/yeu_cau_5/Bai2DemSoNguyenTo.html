@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array = [[3,4,5,18],[9,10,11,16],[12,13,14,15],[2,33,19,35]]
+
+
+    let primeNumbers = [];
+    function demSoNguyenToMang2Chieu(array2D){
+        let dem = 0;
+        for(let i = 0 ; i< array2D.length;i++){
+            for(let j = 0; j< array2D[i].length;j++){
+                if(soNguyenTo(array2D[i][j])===true){
+                    dem++;
+                    primeNumbers.push(array2D[i][j]);
+                }
+            }
+        }
+        return dem;
+    }
+    let count = demSoNguyenToMang2Chieu(array);
+    alert('có '+ count +' số nguyên tố  trong mảng là '+ primeNumbers);
+    function soNguyenTo(number){
+        let flag = true;
+        if(number<2){
+            flag = false;
+        }
+        for(let i = 2; i<number;i++){
+            if(number%i===0){
+                flag = false;
+            }
+        }
+        return flag;
+    }
+
+</script>
+</body>
+</html>

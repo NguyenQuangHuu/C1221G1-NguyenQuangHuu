@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let s1 = 'acbdcaac';
+    let s2 = 'abca';
+    let s1Array= s1.split('');
+    let s2Array= s2.split('');
+    let text = ''
+    let demTong = 0;
+    for(let i = 0;i<s1Array.length;i++){
+        let a = s1Array[i];
+        let dem = 0;
+
+        for(let j = 0; j<s2Array.length;j++){
+            if(a === s2Array[j]){
+                dem++;
+                demTong++;
+                s2Array.splice(j,1);
+
+                j--;
+            }
+
+        }
+        if(dem>0){
+            text+= dem + ""+ a + " ";
+        }
+
+    }
+    console.log(text);
+    alert('Chuỗi s1 và s2 có '+demTong+' ký tự chung là : '+text);
+    // let anotherOneArray = []
+    // for(let i = 0 ; i<s1ArrayTransfer.length;i++){
+    //     for(let j = 0;j<s2ArrayTransfer.length;j++){
+    //         let index = s2ArrayTransfer.indexOf(s1ArrayTransfer[i]);
+    //         if(index !==-1){
+    //             anotherOneArray.push(s2ArrayTransfer[index]);
+    //             s2ArrayTransfer.splice(index,1);
+    //             j=0;
+    //             break;
+    //         }
+    //     }
+    // }
+    //
+    // let sortArray = anotherOneArray.sort();
+    // let kyTuChung = sortArray.length;
+    // let text = '';
+    //
+    // let dem = 1;
+    // for(let i = 1; i<kyTuChung-1;i++){
+    //     let first = sortArray[0];
+    //     if(first === sortArray[i]){
+    //         dem++;
+    //         sortArray.splice(i,1);
+    //         i--;
+    //         first = sortArray[i];
+    //     }
+    //     console.log(first,sortArray[i]);
+    //     text += dem+' '+sortArray[i] +' ';
+    //     dem=1;
+    // }
+
+
+</script>
+</body>
+</html>

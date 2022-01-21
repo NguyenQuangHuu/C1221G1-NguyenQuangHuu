@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let A=[7,2,5,3,5,3];
+    let B=[22,12,10,1,7,2,5,4,6,3,5,3,9,12];
+
+    let C = [];
+
+    for(let i = 0;i<B.length;i++){
+        if(A.indexOf(B[i])===-1){
+            if(C.indexOf(B[i])===-1){
+                C.push(B[i]);
+            }
+        }
+    }
+
+    let result = C.sort(function(a,b){
+        return a-b;
+    })
+    alert('Sau khi kiểm tra thì các số không có trong A là : '+(result));
+
+    // let sortA = A.sort( function (a,b){
+    //     return a - b;
+    // })
+    // let uniqueA = [];
+    // for(let i =0;i<sortA.length;i++){
+    //     if(uniqueA.indexOf(sortA[i])===-1){
+    //         uniqueA.push(sortA[i]);
+    //     }
+    // }
+    //
+    // let sortB = B.sort( function (a,b){
+    //     return a - b;
+    // })
+    //
+    // let uniqueB = [];
+    // for(let i =0;i<sortB.length;i++){
+    //     if(uniqueB.indexOf(sortB[i])===-1){
+    //         uniqueB.push(sortB[i]);
+    //     }
+    // }
+    // let missingValue = [];
+    //
+    // console.log(uniqueA);
+    // console.log(sortA);
+    // console.log(uniqueB);
+    // console.log(sortB);
+    // for(let i = 0; i<uniqueA.length;i++){
+    //     for(let j = 0; j<uniqueB.length;j++){
+    //         if(uniqueA.indexOf(uniqueB[j])===-1){
+    //             // if(missingValue.indexOf(uniqueB[j])===-1){
+    //                 missingValue.push(uniqueB[j]);
+    //                 i++;
+    //             // }
+    //         }
+    //
+    //     }
+    // }
+    // console.log(missingValue);
+    //
+    // alert('Sau khi kiểm tra thì các số không có trong A là : '+missingValue);
+</script>
+</body>
+</html>

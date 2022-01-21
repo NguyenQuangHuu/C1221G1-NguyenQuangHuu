@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let luong;
+    do{
+        luong = prompt('Nhập tiền lương nhân viên cần tính');
+    }while(luong<=0);
+
+    let thueTN;
+    let luongThucNhan;
+    if(luong>=15000000){
+        thueTN = luong*20/100;
+        luongThucNhan = luong - thueTN;
+    }else if(luong>=7000000){
+        thueTN = luong*10/100;
+        luongThucNhan = luong - thueTN;
+    }else{
+        thueTN = luong*5/100;
+        luongThucNhan = luong - thueTN;
+    }
+    alert('Thuế thu nhập là: '+thueTN+ ' và lương thực nhận sau khi trừ thuế là '+ luongThucNhan);
+</script>
+</body>
+</html>

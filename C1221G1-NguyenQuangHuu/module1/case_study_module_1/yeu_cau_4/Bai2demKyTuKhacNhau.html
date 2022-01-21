@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let text = 'abcdssafwqzxcaaaaaccccccssssaa';
+    let dem = 0;
+    let beforeCheck = [];
+    for(let i = 0; i<text.length;i++){
+        if(beforeCheck.indexOf(text[i])===-1){
+            beforeCheck.push(text[i]);
+            dem++;
+        }
+    }
+    document.write('Chuỗi trước khi kiểm tra là :'+text);
+    document.write('<br>');
+    document.write('Có '+dem+' kí tự khác nhau là '+beforeCheck);
+</script>
+</body>
+</html>

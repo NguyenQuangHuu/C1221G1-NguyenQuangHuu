@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let stringValue = 'tRuong  tAN   HAi lA hOC sINH gioi';
+
+    let array = stringValue.split(' ');
+
+    let afterChange = '';
+
+    for(let i = 0 ; i<array.length;i++){
+
+        if(array[i]===''){
+            array.splice(i,1);
+            i--;
+        }
+
+    }
+
+    for(let i = 0; i< array.length;i++){
+
+        afterChange += textHandler(array[i]) + ' ';
+
+    }
+
+
+    document.write(afterChange);
+
+    function textHandler(text){
+
+        let splitArray = text.split('');
+
+        for(let i = 0;i<splitArray.length;i++){
+            if(i===0){
+                splitArray[i] = splitArray[i].toUpperCase();
+            }else{
+                splitArray[i] = splitArray[i].toLowerCase();
+            }
+        }
+        return splitArray.join('');
+    }
+
+</script>
+</body>
+</html>

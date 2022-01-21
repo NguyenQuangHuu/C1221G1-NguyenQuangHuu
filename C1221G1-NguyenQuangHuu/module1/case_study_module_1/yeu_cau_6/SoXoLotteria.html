@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input[type="button"]{
+            padding:2px 20px;
+        }
+        button{
+            margin: 4px;
+            width: 40px;
+        }
+        table{
+            text-align: center;
+            margin: 10px auto;
+        }
+        h3{
+            text-align: center;
+        }
+        #soLuongve{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h3>Xổ số LOTTE CODEGYM</h3>
+<div id="soLuongve">
+    <button type="button" onclick="themVe()">Mua vé</button>
+    <p>Vé thứ 1 : </p>
+    <input type="button" value="0" id="so1" onclick="chonSo(this.id)">
+    <input type="button" value="0" id="so2" onclick="chonSo(this.id)">
+    <input type="button" value="0" id="so3" onclick="chonSo(this.id)">
+    <input type="button" value="0" id="so4" onclick="chonSo(this.id)">
+    <input type="button" value="0" id="so5" onclick="chonSo(this.id)">
+
+</div>
+
+<div id="bangSo"></div>
+
+<script>
+    class VeSo{
+        constructor() {
+            this.so1 = 0;
+            this.so2 = 0;
+            this.so3 = 0;
+            this.so4 = 0;
+            this.so5 = 0;
+            this.so6 = 0;
+        }
+        getSo1(){
+            return this.so1;
+        }
+        setSo1(so1){
+            this.so1 = so1;
+        }
+        getSo2(){
+            return this.so2;
+        }
+        setSo2(so2){
+            this.so2 = so2;
+        }
+        getSo3(){
+            return this.so3;
+        }
+        setSo3(so3){
+            this.so3 = so3;
+        }
+        getSo4(){
+            return this.so4;
+        }
+        setSo4(so4){
+            this.so4 = so4;
+        }
+        getSo5(){
+            return this.so5;
+        }
+        setSo5(so5){
+            this.so5 = so5;
+        }
+        getSo6(){
+            return this.so6;
+        }
+        setSo6(so6){
+            this.so6 = so6;
+        }
+
+    }
+    let bienId ;
+    let maVe = 0;
+ function chonSo(id){
+     let bangChonSo = document.getElementById('bangSo');
+     bienId = id;
+
+     let table = '';
+     table+="<h3>Hãy chọn số</h3>" +
+         "<table style='border-collapse: collapse;'>"
+     for(let i = 0 ; i<10;i++){
+         table+="<tr>"
+         for(let j = 1 ; j<=10;j++){
+             table+= "<td><button type='button' onclick='so(this)'  value='"+(i*10+j)+"'>"+(i*10+j)+"</td>"
+
+         }
+         table+="</tr>";
+     }
+     table+="</table>";
+     bangChonSo.innerHTML = table;
+
+ }
+ function so(a){
+     document.getElementById(bienId).value = a.value;
+ }
+ function themVe(){
+
+ }
+
+    let ve1 = new VeSo();
+    ve1.setSo1(22);
+    ve1.setSo2(10);
+    ve1.setSo3(11);
+    ve1.setSo4(33);
+    ve1.setSo5(43);
+    ve1.setSo6(65);
+
+    console.log(ve1);
+ </script>
+</body>
+</html>

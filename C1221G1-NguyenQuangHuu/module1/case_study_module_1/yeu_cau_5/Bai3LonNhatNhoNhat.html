@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array = [[3,4,5,18],[9,10,11,16],[12,13,14,15],[2,33,19,35]]
+
+    let max = array[0][0];
+    let min = array[0][0];
+
+    function maxMin(array2D){
+        for(let i = 0; i<array2D.length;i++){
+            for(let j = 0; j<array2D[i].length;j++){
+                if(max < array2D[i][j]){
+                    max = array2D[i][j];
+                }
+                if(min > array2D[i][j]){
+                    min = array2D[i][j];
+                }
+            }
+        }
+    }
+    maxMin(array);
+    alert('Giá trị lớn nhất trong mảng 2 chiều là :'+max +' , và giá trị nhỏ nhất trong mảng là : '+min);
+</script>
+</body>
+</html>
