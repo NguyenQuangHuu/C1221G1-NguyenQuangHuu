@@ -6,65 +6,54 @@
 </head>
 <body>
 <script>
-    let s1 = 'acbdcaac';
-    let s2 = 'abca';
-    let s1Array= s1.split('');
-    let s2Array= s2.split('');
-    let text = ''
+    let s1 = 'acbdcaaaafasd';
+    let s2 = 'abcaaaassdwacaas';
+    let s1Array = s1.split('');
+    let s2Array = s2.split('');
+
+    let text = [];
     let demTong = 0;
-    for(let i = 0;i<s1Array.length;i++){
-        let a = s1Array[i];
-        let dem = 0;
-
-        for(let j = 0; j<s2Array.length;j++){
-            if(a === s2Array[j]){
-                dem++;
+    for (let i = 0; i < s1Array.length; i++) {
+        for (let j = 0; j < s2Array.length; j++) {
+            if (s1Array[i] === s2Array[j]) {
                 demTong++;
-                s2Array.splice(j,1);
-
+                text.push(s2Array[j]);
+                s2Array.splice(j, 1);
                 j--;
+                break;
             }
-
         }
-        if(dem>0){
-            text+= dem + ""+ a + " ";
-        }
-
     }
-    console.log(text);
-    alert('Chuỗi s1 và s2 có '+demTong+' ký tự chung là : '+text);
-    // let anotherOneArray = []
-    // for(let i = 0 ; i<s1ArrayTransfer.length;i++){
-    //     for(let j = 0;j<s2ArrayTransfer.length;j++){
-    //         let index = s2ArrayTransfer.indexOf(s1ArrayTransfer[i]);
-    //         if(index !==-1){
-    //             anotherOneArray.push(s2ArrayTransfer[index]);
-    //             s2ArrayTransfer.splice(index,1);
-    //             j=0;
-    //             break;
-    //         }
-    //     }
-    // }
-    //
-    // let sortArray = anotherOneArray.sort();
-    // let kyTuChung = sortArray.length;
-    // let text = '';
-    //
-    // let dem = 1;
-    // for(let i = 1; i<kyTuChung-1;i++){
-    //     let first = sortArray[0];
-    //     if(first === sortArray[i]){
-    //         dem++;
-    //         sortArray.splice(i,1);
-    //         i--;
-    //         first = sortArray[i];
-    //     }
-    //     console.log(first,sortArray[i]);
-    //     text += dem+' '+sortArray[i] +' ';
-    //     dem=1;
-    // }
 
+    text = text.sort();
 
+    let textArray = [];
+
+    for (let i = 0; i < text.length; i++) {
+        if (textArray.indexOf(text[i]) === -1) {
+            textArray.push(text[i]);
+        }
+    }
+
+    let counter = [];
+
+    for (let i = 0; i < textArray.length; i++) {
+
+        let dem = 0;
+        for (let j = 0; j < text.length; j++) {
+            if (textArray[i] === text[j]) {
+                dem++;
+            }
+        }
+        counter.push(dem);
+    }
+
+    let result = '';
+    for(let i = 0 ; i< counter.length;i++){
+        result += counter[i] + " " + textArray[i] + " ";
+    }
+
+    alert('s1 và s2 có '+ demTong +' kí tự chung là : '+result);
 </script>
 </body>
 </html>
