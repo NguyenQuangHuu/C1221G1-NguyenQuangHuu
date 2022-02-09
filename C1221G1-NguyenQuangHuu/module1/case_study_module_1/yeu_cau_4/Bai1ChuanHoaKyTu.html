@@ -6,43 +6,93 @@
 </head>
 <body>
 <script>
-    let stringValue = 'tRuong  tAN   HAi lA hOC sINH gioi';
+    let stringValue = 'tRuong  tAN  HAi   lA   hOC   sINH   gioi   ';
+    //=> Truong Tan Hai La Hoc Sinh Gioi
+    let mang = stringValue.split(" ");
 
-    let array = stringValue.split(' ');
+    for(let i = 0; i<mang.length;i++){
 
-    let afterChange = '';
-
-    for(let i = 0 ; i<array.length;i++){
-
-        if(array[i]===''){
-            array.splice(i,1);
+        if(mang[i] === ''){
+            mang.splice(i,1);
             i--;
         }
-
     }
-
-    for(let i = 0; i< array.length;i++){
-
-        afterChange += textHandler(array[i]) + ' ';
-
+    console.log(mang);
+    let text = '';
+    for(let i = 0;i<mang.length;i++){
+        text += doiChuoi(mang[i]) + " ";
     }
+    console.log(text);
+    function doiChuoi(a){
 
+        let value1 = a.split('');
 
-    document.write(afterChange);
-
-    function textHandler(text){
-
-        let splitArray = text.split('');
-
-        for(let i = 0;i<splitArray.length;i++){
+        for(let i = 0; i<value1.length;i++){
             if(i===0){
-                splitArray[i] = splitArray[i].toUpperCase();
+                value1[i] = value1[i].toUpperCase();
             }else{
-                splitArray[i] = splitArray[i].toLowerCase();
+                value1[i] = value1[i].toLowerCase();
             }
         }
-        return splitArray.join('');
+
+        return value1.join('');
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // let array = stringValue.split(' ');
+    //
+    // let afterChange = '';
+    //
+    // for(let i = 0 ; i<array.length;i++){
+    //
+    //     if(array[i]===''){
+    //         array.splice(i,1);
+    //         i--;
+    //     }
+    //
+    // }
+    //
+    // for(let i = 0; i< array.length;i++){
+    //
+    //     afterChange += textHandler(array[i]) + ' ';
+    //
+    // }
+    //
+    //
+    // document.write(afterChange);
+    //
+    // function textHandler(text){
+    //
+    //     let splitArray = text.split('');
+    //
+    //     for(let i = 0;i<splitArray.length;i++){
+    //         if(i===0){
+    //             splitArray[i] = splitArray[i].toUpperCase();
+    //         }else{
+    //             splitArray[i] = splitArray[i].toLowerCase();
+    //         }
+    //     }
+    //     return splitArray.join('');
+    // }
 
 </script>
 </body>

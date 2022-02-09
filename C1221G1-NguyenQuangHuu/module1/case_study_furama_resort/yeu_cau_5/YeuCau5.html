@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border-collapse: collapse;
+
+        }
+    </style>
+</head>
+<body>
+<p id="show"></p>
+<script>
+    let arrListCustomer = [
+        ['Nguyễn Quang Hữu', 'Đà Nẵng', '123456789'],
+        ['Nguyễn Thị Mỹ Duyên', 'Trung Quốc', '123456788'],
+        ['Nguyễn Thị Kim Yến', 'England', '999999999'],
+        ['Nguyễn Quang HỮu', 'Đà Nẵng', '123456789'],
+        ['Nguyễn Thị Mỹ Duyên', 'Trung Quốc', '123456788'],
+        ['Nguyễn Thị Kim Yến', 'England', '999999999'],
+        ['Nguyễn Quang HỮu', 'Đà Nẵng', '123456789'],
+        ['Nguyễn Thị Mỹ Duyên', 'Trung Quốc', '123456788'],
+        ['Nguyễn Thị Kim Yến', 'England', '999999999'],
+    ];
+    displayMainMenu();
+
+    function displayMainMenu() {
+        let choose = parseInt(prompt('Choose your request.\n' +
+            '1. Adding New Customer.\n' +
+            '2. Display Information Customer.\n' +
+            '3. Delete Customer. \n' +
+            'Press -1 to Exit'));
+        switch (choose) {
+            case 1:
+                addingNewCustomer();
+                break;
+            case 2:
+                displayInformationCustomer();
+                break;
+            case 3: deleteCustomer();break;
+            case -1:
+                break;
+        }
+
+
+    }
+
+    displayAll();
+
+    function addingNewCustomer() {
+        let arrNameCustomer = [];
+        let name = prompt('Enter customer"s name');
+        arrNameCustomer.push(name);
+        let address = prompt('Enter customer"s address');
+        arrNameCustomer.push(address);
+        let passport = prompt('Enter customer"s passportID');
+        arrNameCustomer.push(passport);
+
+        arrListCustomer.push(arrNameCustomer);
+
+        displayMainMenu();
+    }
+
+    function displayAll() {
+        let show = document.getElementById('show');
+        let text = '<table border="1"><tr><th>STT</th><th>Customer Name</th><th>Customer Address</th><th>Customer Passport ID</th><th>Action</th></tr>';
+        for (let i = 0; i < arrListCustomer.length; i++) {
+            text += '<tr><td>' + (i) + '</td>';
+            for (let j = 0; j < arrListCustomer[i].length; j++) {
+                text += '<td>' + arrListCustomer[i][j] + '</td>';
+            }
+            text += '<td><input type="button" value="Edit"><input type="button" value="Delete"></td></tr>';
+        }
+        text += '</table>';
+        show.innerHTML = text;
+    }
+
+    function displayAllCustomers(){
+        let text = 'Lists customer: \n';
+        for (let i = 0; i < arrListCustomer.length; i++) {
+            text += 'Id Card: ' + i + '';
+            for (let j = 0; j < arrListCustomer[i].length; j++) {
+                text += ". " + arrListCustomer[i][j];
+            }
+            text += '\n';
+        }
+        return text;
+    }
+    function displayInformationCustomer() {
+
+        let chosen = parseInt(prompt(displayAllCustomers() + ' \nChọn ID bất kì để chỉnh sửa \nPress -1 to exit'));
+        if (chosen === -1) {
+            displayMainMenu();
+        } else {
+            for(let i = 0 ; i<arrListCustomer.length;i++){
+                if(i===chosen){
+                    let text = 'Thông tin khách hàng bạn đã chọn : \n'+i+' '+arrListCustomer[i]+'\n';
+                    let editChosen = prompt(text+'\n' +
+                        'Trường dữ liệu bạn muốn chỉnh sửa là: \n' +
+                        '0. Họ Tên.\n' +
+                        '1. Địa chỉ.\n' +
+                        '2. Chứng minh thư.\n' +
+                        '-1. Trở Lại');
+                    switch(editChosen){
+                        case '0':arrListCustomer[chosen][0] = inputField();break;
+                        case '1':arrListCustomer[chosen][1] = inputField();break;
+                        case '2':arrListCustomer[chosen][2] = inputField();break;
+                        case '-1':displayInformationCustomer();break;
+                    }
+                }
+            }
+        }
+
+    }
+
+    function inputField(){
+        return prompt('Nhập dữ liệu cần thay đổi');
+    }
+
+
+    function deleteCustomer(){
+        let chosen = parseInt(prompt(displayAllCustomers() + '\nChọn ID bất kì để xóa \n Press -1 to exit'));
+        if(chosen === -1){
+            displayMainMenu();
+        }else{
+            if(chosen>arrListCustomer.length-1){
+                alert('Không tồn tại ID này');
+                deleteCustomer();
+            }
+            else {
+                for (let i = 0; i < arrListCustomer.length; i++) {
+                    if (i === chosen) {
+                        let confirmID = confirm('Xác nhận xóa khách hàng có id này ?');
+                        if(confirmID === true){
+                            arrListCustomer.splice(chosen, 1);
+                            alert('Đã xóa khách hàng này');
+                            displayMainMenu();
+                        }else{
+                            displayMainMenu();
+                        }
+                    }
+
+                }
+            }
+        }
+
+    }
+
+</script>
+</body>
+</html>

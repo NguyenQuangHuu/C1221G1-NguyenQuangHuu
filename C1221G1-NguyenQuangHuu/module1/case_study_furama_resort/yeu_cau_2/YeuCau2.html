@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="info"></div>
+<div>
+    <button type="button" onclick="edit()">Chỉnh sửa</button>
+</div>
+<div id="result"></div>
+<script>
+    let customerName = 'Nguyễn Văn A';
+    let add = '1 Núi Thành';
+    let email = 'abc@gmail.com';
+    let id = '012345678';
+    let dob = '12/23/1992';
+    let type = 'Diamond';
+    let typeService = 'Villa';
+    let rentsDay = 3;
+    let discount = 15;
+    let numbersCustomer = 2;
+    let currentAge;
+
+
+    show();
+
+    function show() {
+        let dayOfBirth = new Date(dob).getFullYear();
+        let currentYear = new Date().getFullYear();
+        currentAge = currentYear - dayOfBirth;
+        let text = 'Họ tên khách hàng : ' + customerName + '\n' +
+            'Địa chỉ : ' + add + '\n' +
+            'Email : ' + email + '\n' +
+            'Số chứng minh thư : ' + id + '\n' +
+            'Cấp bậc thành viên : ' + type + '\n' +
+            'Số ngày sử dụng dịch vụ : ' + rentsDay + '\n' +
+            'Số lượng khách : ' + numbersCustomer + '\n' +
+            'Sinh nhật của khách: ' + dob + '\n' +
+            'Tuổi:'+currentAge;
+
+        let info = document.getElementById("info");
+        info.innerText = text;
+        showAmount();
+    };
+
+    function showAmount() {
+        let result = document.getElementById("result");
+        let discountByAddress = 0;
+        switch (add) {
+            case 'Đà Nẵng':
+                if(currentAge > 30){
+                    discountByAddress = 22;
+                }
+                else if(currentAge>20){
+                   discountByAddress = 21;
+                }else{
+                    discountByAddress = 20;
+                }
+                break;
+            case 'Huế':
+                discountByAddress = 10;
+                break;
+            case 'Quảng Nam':
+                discountByAddress = 5;
+                break;
+            default:discountByAddress=0;
+        }
+
+        let discountByRentsDay = 0;
+        if (rentsDay > 7) {
+            discountByRentsDay = 30;
+        } else if (rentsDay > 5) {
+            discountByRentsDay = 20;
+        } else {
+            discountByRentsDay = 10;
+        }
+        let discountByTypeMember = 0;
+        switch (type) {
+            case 'Diamond':
+                discountByTypeMember = 15;
+                break;
+            case 'Platinum':
+                discountByTypeMember = 10;
+                break;
+            case 'Gold':
+                discountByTypeMember = 5;
+                break;
+            case 'Silver':
+                discountByTypeMember = 2;
+                break;
+            case 'Member':
+                discountByTypeMember = 0;
+                break;
+        }
+        let finalDiscount =discountByAddress + discountByTypeMember + discountByRentsDay
+        let amount;
+        switch(typeService){
+            case 'Villa': amount = 500*rentsDay*(1-discount/100) - finalDiscount;break;
+            case 'House': amount = 300*rentsDay*(1-discount/100) - finalDiscount;break;
+            case 'Room': amount = 100*rentsDay*(1-discount/100) - finalDiscount;break;
+        }
+        console.log(discountByAddress,discountByTypeMember,discountByRentsDay,amount);
+        result.innerText = 'Tổng thanh toán của khách hàng là : ' + amount;
+    }
+
+    function edit() {
+        let result;
+        do {
+            result = parseInt(prompt('Bạn muốn chỉnh sửa ở vị trí :\n ' +
+                '1.Họ tên\n' +
+                '2.Địa chỉ\n' +
+                '3.Email\n' +
+                '4.Số giấy tờ tùy thân\n' +
+                '5.Cấp bậc thành viên\n' +
+                '6.Số ngày sử dụng dịch vụ\n' +
+                '7.Số lượng khách\n' +
+                '8.Ngày sinh\n' +
+                '9.Loại dịch vụ\n' +
+                '0.Giảm giá\n' +
+                '-1.Thoát chỉnh sửa'
+            ));
+            switch (result) {
+                case 1:
+                    customerName = prompt('Nhập giá trị muốn chỉnh sửa');
+                    show();
+                    break;
+                case 2:
+                    add = nhap();
+                    show();
+                    break;
+                case 3:
+                    email = nhap();
+                    show();
+                    break;
+                case 4:
+                    id = nhap();
+                    show();
+                    break;
+                case 5:
+                    type = nhap();
+                    show();
+                    break;
+                case 6:
+                    rentsDay = parseInt(nhap());
+                    show();
+                    break;
+                case 7:
+                    numbersCustomer = parseInt(nhap());
+                    show();
+                    break;
+                case 8:
+                    dob = nhap();
+
+                    show();
+
+                    break;
+                case 9:
+                    typeService = nhap();
+                    show();
+                    break;
+                case 0:
+                    discount = parseInt(nhap());
+                    show();
+                    break;
+            }
+        } while (result !== -1 && !isNaN(result));
+
+
+    }
+
+    function nhap() {
+        return prompt('Nhập giá trị muốn chỉnh sửa');
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let listCustomers = [];
+    let listEmployee = [];
+    class Customer {
+        constructor(name, passport, dob, email, address, typeCustomer, discount, numberCustomer, rentsDay, typeService, typeOfRentsRoom) {
+
+            this.name = name;
+            this.passport = passport;
+            this.dob = dob;
+            this.email = email;
+            this.address = address;
+            this.typeCustomer = typeCustomer;
+            this.discount = discount;
+            this.numberCustomer = numberCustomer;
+            this.rentsDay = rentsDay;
+            this.typeService = typeService;
+            this.typeOfRentsRoom = typeOfRentsRoom;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(value) {
+            this.name = value;
+        }
+
+        getPassport() {
+            return this.passport;
+        }
+
+        setPassport(value) {
+            this.passport = value;
+        }
+
+        getDob() {
+            return this.dob;
+        }
+
+        setDob(value) {
+            this.dob = value;
+        }
+
+        getEmail() {
+            return this.email;
+        }
+
+        setEmail(value) {
+            this.email = value;
+        }
+
+        getAddress() {
+            return this.address;
+        }
+
+        setAddress(value) {
+            this.address = value;
+        }
+
+        getTypeCustomer() {
+            return this.typeCustomer;
+        }
+
+        setTypeCustomer(value) {
+            this.typeCustomer = value;
+        }
+
+        getDiscount() {
+            return this.discount;
+        }
+
+        setDiscount(value) {
+            this.discount = value;
+        }
+
+        getNumberCustomer() {
+            return this.numberCustomer;
+        }
+
+        setNumberCustomer(value) {
+            this.numberCustomer = value;
+        }
+
+        getRentsDay() {
+            return this.rentsDay;
+        }
+
+        setRentsDay(value) {
+            this.rentsDay = value;
+        }
+
+        getTypeService() {
+            return this.typeService;
+        }
+
+        setTypeService(value) {
+            this.typeService = value;
+        }
+
+        getTypeOfRentsRoom() {
+            return this.typeOfRentsRoom;
+        }
+
+        setTypeOfRentsRoom(value) {
+            this.typeOfRentsRoom = value;
+        }
+
+        toString(){
+            return 'Khách Hàng: '+this.name+' - CMT: '+this.passport+' - DOB: '+this.dob+' - Email: '+this.email;
+        }
+
+        payment() {
+            let amount;
+            switch (this.getTypeOfRentsRoom()) {
+                case 'Villa':amount = 500 * this.getRentsDay() * (1 - this.getDiscount() / 100);break;
+                case 'House':amount = 300 * this.getRentsDay() * (1 - this.getDiscount() / 100);break;
+                case 'Room':amount = 100 * this.getRentsDay() * (1 - this.getDiscount() / 100);break;
+            }
+            console.log(amount);
+            return amount;
+        }
+
+
+    }
+    class Employee extends Customer{
+        constructor(name,passport,dob,email,address,typeEmployee,workingDay) {
+            super(name,passport,dob,email,address);
+            this.typeEmployee = typeEmployee;
+            this.workingDay = workingDay;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(value) {
+            this.name = value;
+        }
+
+        getPassport() {
+            return this.passport;
+        }
+
+        setPassport(value) {
+            this.passport = value;
+        }
+
+        getDob() {
+            return this.dob;
+        }
+
+        setDob(value) {
+            this.dob = value;
+        }
+
+        getEmail() {
+            return this.email;
+        }
+
+        setEmail(value) {
+            this.email = value;
+        }
+
+        getAddress() {
+            return this.address;
+        }
+
+        setAddress(value) {
+            this.address = value;
+        }
+
+        getTypeEmployee() {
+            return this.typeEmployee;
+        }
+
+        setTypeEmployee(value) {
+            this.typeEmployee = value;
+        }
+
+
+        getWorkingDay() {
+            return this.workingDay;
+        }
+
+        setWorkingDay(value) {
+            this.workingDay = value;
+        }
+
+
+        toString(){
+            return 'Nhân viên : '+this.name+' - CMT: '+this.passport+' - DOB: '+this.dob+' - Email: '+this.email;
+        }
+
+        salaryInWorkingDay(){
+            let totalSalary;
+            switch (this.getTypeEmployee()) {
+                case 'Manager': totalSalary = 500 + this.getWorkingDay()*20;break;
+                case 'Sale': totalSalary = 300 + this.getWorkingDay()*18;break;
+                case 'Marketing': totalSalary = 200 + this.getWorkingDay()*18;break;
+                default : totalSalary = 100 + this.getWorkingDay()*15;break;
+            }
+            return totalSalary;
+        }
+    }
+    let customer1 = new Customer('Nguyễn Văn A', '123456789', '12.12.1994', 'nguyenvana_@gmail.com', 'Đà Nẵng', 'Diamond', 15, 3, 5, 'Business', 'Villa');
+    let customer2 = new Customer('Nguyễn Văn B', '123456789', '12.12.1994', 'nguyenvanb_@gmail.com', 'Đà Nẵng', 'Gold', 15, 1, 5, 'Business', 'Villa');
+    let customer3 = new Customer('Nguyễn Văn C', '123456789', '12.12.1994', 'nguyenvanc_@gmail.com', 'Đà Nẵng', 'Silver', 15, 4, 5, 'Business', 'House');
+    let customer4 = new Customer('Nguyễn Văn D', '123456789', '12.12.1994', 'nguyenvand_@gmail.com', 'Đà Nẵng', 'Member', 15, 6, 5, 'Business', 'Room');
+    listCustomers.push(customer1);
+    listCustomers.push(customer2);
+    listCustomers.push(customer3);
+    listCustomers.push(customer4);
+    console.log(listCustomers);
+    let employee = new Employee('Nguyễn văn Manager','123456789','11.11.1994','nguyenvansale@gmail.com','Đà Nẵng','Manager',30);
+    let employee1 = new Employee('Nguyễn văn Sale','123456789','11.11.1994','nguyenvansale@gmail.com','Đà Nẵng','Sale',28);
+    let employee2 = new Employee('Nguyễn văn Marketing','123456789','11.11.1994','nguyenvansale@gmail.com','Đà Nẵng','Marketing',25);
+    listEmployee.push(employee);
+    listEmployee.push(employee1);
+    listEmployee.push(employee2);
+    console.log(listEmployee);
+    displayMenu();
+    //Main Function
+    function displayMenu(){
+        let choose;
+        do{
+            choose = parseInt(prompt('Menu: \n' +
+                '1.Add New Customer.\n' +
+                '2.Display Information Customer.\n' +
+                '3.Display Total Pay Of Customer.\n' +
+                '4.Edit Information Customer.\n' +
+                '5.Delete Customer.\n' +
+                '6.Add new Employee\n' +
+                '7.Display Employee\n' +
+                '8.Salary check Employee\n' +
+                '-1.Exit Menu.'))
+
+                switch (choose) {
+                    case 1 : addNewCustomer();break;
+                    case 2 : displayCustomers();break;
+                    case 3 : displayTotalPayOfCustomer();break;
+                    case 4 : editInformationCustomer();break;
+                    case 5 : delCustomer();break;
+                    case 6 : addEmployee();break;
+                    case 7 : displayEmployees();break;
+                    case 8 : salaryEmployee();break;
+                }
+
+        }while(choose!==-1 );
+    }
+
+
+    function addNewCustomer() {
+        let name = prompt("Enter name's customer");
+
+        let passport;
+
+        let checkPassport = false;
+        do {
+            passport = prompt("Enter passport's customer");
+            checkPassport = regPassport(passport);
+        } while (!checkPassport);
+        let dob;
+        let checkDOB = false;
+        do {
+            dob = prompt("Enter dob's customer");
+            checkDOB = regDOB(dob);
+        } while (!checkDOB);
+
+        let email;
+        let checkEmail = false;
+        do {
+            email = prompt("Enter email's customer");
+            checkEmail = regEmail(email);
+        } while (!checkEmail);
+
+
+        let address = prompt("Enter address's customer");
+        let typeCustomer = prompt("Enter type membership");
+        let discount = parseInt(prompt("Enter discount"));
+        let numbersCustomer = parseInt(prompt("Enter numbers customer"));
+        let rentsDay = parseInt(prompt("Enter rents day"));
+        let typeService = prompt("Enter type service");
+        let typeOfRentsRoom = prompt("Enter type rents");
+
+        let customer = new Customer(name, passport, dob, email, address, typeCustomer, discount, numbersCustomer, rentsDay, typeService, typeOfRentsRoom);
+        listCustomers.push(customer);
+    }
+
+    function displayCustomers(){
+        let text = displayCustomer();
+        let choose = parseInt(prompt(text + '\nPress -1  to go to main menu.'));
+        if(choose===-1){
+            displayMenu();
+        }else{
+            alert('Yêu cầu của bạn không hợp lệ');
+        }
+    }
+
+    function displayCustomer(){
+        let text = 'Danh sách Khách hàng \n';
+        for(let i = 0;i<listCustomers.length;i++){
+            text+= 'Mã KH: '+i+' / '+listCustomers[i].toString() + '.\n';
+        }
+        return text;
+    }
+
+    function displayTotalPayOfCustomer(){
+        let text = displayCustomer();
+        let result;
+        let choose = parseInt(prompt(text + '\nChọn mã KH để kiểm tra.\nPress -1  to go to main menu.'));
+        if(choose!==-1 && choose>listCustomers.length){
+            alert('Sai Thông tin khách hàng');
+            displayMenu();
+        }else{
+            for(let i = 0; i<listCustomers.length;i++){
+                if(i===choose){
+                    result = 'KH có mã : '+i+' sử dụng dịch vụ '+listCustomers[i].getTypeOfRentsRoom()+' với '+listCustomers[i].getRentsDay()+' ngày sử dụng và áp dụng giảm '+listCustomers[i].getDiscount()+'% trên tổng hóa đơn ' +
+                        ' nên tổng thanh toán là $'+listCustomers[i].payment();
+                }
+            }
+        }
+        return alert(result);
+    }
+
+    function editInformationCustomer(){
+        let text = displayCustomer();
+        let choose = parseInt(prompt(text + '\nHãy lựa chọn khách hàng cần chỉnh sửa thông tin qua mã KH \nPress -1  to go to main menu.'))
+        for(let i = 0 ; i<listCustomers.length;i++){
+            if(choose===i){
+                let editChooseProp;
+                do{
+                    editChooseProp = parseInt(prompt('Dữ liệu muốn chỉnh sửa: \n ' +
+                        '0.Name\n' +
+                        '1.Passport\n' +
+                        '2.DOB\n' +
+                        '3.Email\n' +
+                        '4.Address\n' +
+                        '5.Type Customer\n' +
+                        '6.Discount\n' +
+                        '7.Rents Day\n' +
+                        '8.Number Customer\n' +
+                        '9.Type Service\n'+
+                        '10.Type Rents ROOM\n'+
+                        '-1.Go to Main Menu\n'
+                    ));
+
+                    switch (editChooseProp) {
+                        case 0 : listCustomers[i].setName(editText());break;
+                        case 1 : let text = editText();
+                                if(regPassport(text)){
+                                    listCustomers[i].setPassport(text);
+                                }else{
+                                    alert(' Sai định dạng Passport ');
+                                }
+                                break;
+                        case 2 :
+                                let text1 = editText();
+                                if(regDOB(text1)){
+                                    listCustomers[i].setDob(text1);
+                                }else{
+                                    alert(' Sai định dạng DOB ');
+                                }
+                                break;
+                        case 3 : let text2 = editText();
+                            if(regEmail(text2)){
+                                listCustomers[i].setEmail(text2);
+                            }else{
+                                alert(' Sai định dạng Email ');
+                            }
+                            break;
+                        case 4 : listCustomers[i].setAddress = editText();break;
+                        case 5 : listCustomers[i].setTypeCustomer(editText());break;
+                        case 6 : listCustomers[i].setDiscount(editText());break;
+                        case 7 : listCustomers[i].setRentsDay(editText());break;
+                        case 8 : listCustomers[i].setNumberCustomer(editText());break;
+                        case 9 : listCustomers[i].setTypeService(editText());break;
+                        case 10 : listCustomers[i].setTypeOfRentsRoom(editText());break;
+                        case -1 : break;
+                        default : alert('Không tồn tại trường dữ liệu này');break;
+                    }
+                }while(editChooseProp!==-1);
+            }
+        }
+    }
+
+    function delCustomer(){
+        let text = displayCustomer();
+        let choose = parseInt(prompt(text + '\n Nhập mã Khách hàng muốn xóa khỏi dữ liệu \nPress -1 to Exit to Main Menu'));
+        if(isNaN(choose)){
+            alert('sai định dạng mã KH');
+            displayMenu();
+        }else{
+            for(let i = 0 ; i<listCustomers.length;i++){
+                if(i === choose){
+                    let con = confirm('Bạn vẫn muốn xóa khách hàng này?');
+                    if(con){
+                        listCustomers.splice(i,1);
+                    }else{
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+
+    function addEmployee(){
+
+        let name = prompt("Enter name's employee");
+
+        let passport;
+
+        let checkPassport = false;
+        do {
+            passport = prompt("Enter passport's Employee");
+            checkPassport = regPassport(passport);
+        } while (!checkPassport);
+        let dob;
+        let checkDOB = false;
+        do {
+            dob = prompt("Enter dob's Employee");
+            checkDOB = regDOB(dob);
+        } while (!checkDOB);
+
+        let email;
+        let checkEmail = false;
+        do {
+            email = prompt("Enter email's Employee");
+            checkEmail = regEmail(email);
+        } while (!checkEmail);
+
+
+        let address = prompt("Enter address's customer");
+        let typeEmployee = prompt("Enter type employee");
+        let workingDay = parseInt(prompt("Enter working day"));
+        let employee = new Employee(name,passport,dob,email,address,typeEmployee,workingDay);
+        listEmployee.push(employee);
+    }
+
+
+
+    function displayEmployees(){
+        let text = displayEmployee();
+        let choose = parseInt(prompt(text+'\nPress -1 to go to Main Menu'));
+        if(choose===-1){
+            displayMenu();
+        }
+    }
+
+    function salaryEmployee(){
+        let text = displayEmployee();
+        let choose = parseInt(prompt(text +'\nChọn mã Nhân viên để kiểm tra lương. \nPress -1 to go to Main Menu'))
+
+        if(choose===-1){
+            displayMenu();
+        }else{
+            for(let i = 0 ; i<listEmployee.length;i++){
+                if(i === choose){
+                    prompt('Số ngày đi làm  của mã NV này là '+ listEmployee[i].getWorkingDay()+ ' với chức vụ là : '+listEmployee[i].getTypeEmployee() +' nên lương sẽ là $'+listEmployee[i].salaryInWorkingDay());
+                }
+            }
+        }
+    }
+
+    function displayEmployee(){
+        let text = 'Danh sách nhân viên: \n';
+        for(let i = 0 ; i< listEmployee.length;i++){
+            text += 'Mã NV: '+i+' / '+listEmployee[i].toString()+'\n';
+        }
+        return text;
+    }
+    //Sub function
+    function editText(){
+        return prompt('Nhập nội dung muốn chỉnh sửa');
+    }
+    function regPassport(value) {
+        let regEx = /\d{9}$/;
+        return regEx.test(value);
+    }
+
+    function regEmail(value) {
+        let regEx = /^[^\s@+!#$%^&*()]+@([a-z]{2,12})+.([a-z]{2,4})?.([a-z]{2,3})$/gi;
+        return regEx.test(value);
+    }
+
+    function regDOB(value) {
+        let reg = /((0?[1-9]|1[0-9]|2[0-9]|3[0-1]){1})[\/\-\.](0?[1-9]|1[0-2]){1}[\/\-\.](((19[5-9][0-9])|(20[0-2][0-9]))|([0-9][0-9])){1}/gi;
+        return reg.test(value);
+    }
+</script>
+</body>
+</html>

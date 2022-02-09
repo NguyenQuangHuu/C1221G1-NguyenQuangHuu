@@ -45,6 +45,7 @@
     <input type="button" onclick="reset()" value="Nhập lại">
 </div>
 <div id="veDaMua"></div>
+<div id="result"></div>
 <script>
     class VeSo {
         constructor(so1, so2, so3, so4, so5, so6) {
@@ -265,5 +266,131 @@
     }
 
 </script>
+<!--<script>-->
+<!--    let themVeSo;-->
+<!--    let soLuongVe = [];-->
+<!--    let dem = 0;-->
+<!--    function themVe(){-->
+<!--        themVeSo = ''-->
+<!--        dem++;-->
+
+<!--        if(dem<=1){-->
+<!--            for(let i = 0; i< dem; i++){-->
+<!--                themVeSo="<div> <input type=\"button\" value=\"0\" id=\"so"+i+"1\" onclick=\"chonSo(this.id)\">\n" +-->
+<!--                    "    <input type=\"button\" value=\"0\" id=\"so"+i+"2\" onclick=\"chonSo(this.id)\">\n" +-->
+<!--                    "    <input type=\"button\" value=\"0\" id=\"so"+i+"3\" onclick=\"chonSo(this.id)\">\n" +-->
+<!--                    "    <input type=\"button\" value=\"0\" id=\"so"+i+"4\" onclick=\"chonSo(this.id)\">\n" +-->
+<!--                    "    <input type=\"button\" value=\"0\" id=\"so"+i+"5\" onclick=\"chonSo(this.id)\">" +-->
+<!--                    "    <input type=\"button\" value=\"0\" id=\"so"+i+"6\" onclick=\"chonSo(this.id)\"></div>";-->
+
+<!--            }-->
+<!--        }else{-->
+<!--            alert('Chỉ mua được tối đa 5 vé thôi anh zai');-->
+<!--        }-->
+
+
+<!--        let display = document.getElementById("soLuongve");-->
+
+<!--        display.innerHTML += themVeSo;-->
+<!--    }-->
+
+<!--    function muaVe(i) {-->
+<!--        let so1 = document.getElementById("so"+i+"1").value;-->
+<!--        let so2 = document.getElementById("so"+i+"2").value;-->
+<!--        let so3 = document.getElementById("so"+i+"3").value;-->
+<!--        let so4 = document.getElementById("so"+i+"4").value;-->
+<!--        let so5 = document.getElementById("so"+i+"5").value;-->
+<!--        let so6 = document.getElementById("so"+i+"6").value;-->
+
+<!--        let ve = new VeSo(so1,so2,so3,so4,so5,so6);-->
+
+<!--        soLuongVe.push(ve);-->
+<!--        console.log(soLuongVe);-->
+<!--    }-->
+
+
+
+<!--    class VeSo{-->
+<!--        constructor(so1,so2,so3,so4,so5,so6) {-->
+<!--            this.so1 = so1;-->
+<!--            this.so2 = so2;-->
+<!--            this.so3 = so3;-->
+<!--            this.so4 = so4;-->
+<!--            this.so5 = so5;-->
+<!--            this.so6 = so6;-->
+<!--        }-->
+<!--        getSo1(){-->
+<!--            return this.so1;-->
+<!--        }-->
+<!--        setSo1(so1){-->
+<!--            this.so1 = so1;-->
+<!--        }-->
+<!--        getSo2(){-->
+<!--            return this.so2;-->
+<!--        }-->
+<!--        setSo2(so2){-->
+<!--            this.so2 = so2;-->
+<!--        }-->
+<!--        getSo3(){-->
+<!--            return this.so3;-->
+<!--        }-->
+<!--        setSo3(so3){-->
+<!--            this.so3 = so3;-->
+<!--        }-->
+<!--        getSo4(){-->
+<!--            return this.so4;-->
+<!--        }-->
+<!--        setSo4(so4){-->
+<!--            this.so4 = so4;-->
+<!--        }-->
+<!--        getSo5(){-->
+<!--            return this.so5;-->
+<!--        }-->
+<!--        setSo5(so5){-->
+<!--            this.so5 = so5;-->
+<!--        }-->
+<!--        getSo6(){-->
+<!--            return this.so6;-->
+<!--        }-->
+<!--        setSo6(so6){-->
+<!--            this.so6 = so6;-->
+<!--        }-->
+
+<!--    }-->
+<!--    let bienId ;-->
+<!--    let maVe = 0;-->
+<!--    function chonSo(id){-->
+<!--        let bangChonSo = document.getElementById('bangSo');-->
+<!--        bienId = id;-->
+
+<!--        let table = '';-->
+<!--        table+="<h3>Hãy chọn số</h3>" +-->
+<!--            "<table style='border-collapse: collapse;'>"-->
+<!--        for(let i = 0 ; i<10;i++){-->
+<!--            table+="<tr>"-->
+<!--            for(let j = 1 ; j<=10;j++){-->
+<!--                table+= "<td><button type='button' onclick='so(this)'  value='"+(i*10+j)+"'>"+(i*10+j)+"</td>"-->
+<!--            }-->
+<!--            table+="</tr>";-->
+<!--        }-->
+<!--        table+="</table>";-->
+<!--        bangChonSo.innerHTML = table;-->
+
+<!--    }-->
+<!--    function so(a){-->
+<!--        document.getElementById(bienId).value = a.value;-->
+<!--    }-->
+
+
+<!--    let ve1 = new VeSo();-->
+<!--    ve1.setSo1(22);-->
+<!--    ve1.setSo2(10);-->
+<!--    ve1.setSo3(11);-->
+<!--    ve1.setSo4(33);-->
+<!--    ve1.setSo5(43);-->
+<!--    ve1.setSo6(65);-->
+
+<!--    console.log(ve1);-->
+<!--</script>-->
 </body>
 </html>

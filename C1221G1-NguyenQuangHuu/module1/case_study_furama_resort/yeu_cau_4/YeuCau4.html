@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="customerList"></p>
+<div>
+    <input type="button" value="Add New Customer" onclick="newCustomer()">
+    <input type="button" value="Delete Customer">
+</div>
+<script>
+    let arrNameCustomers = ['ABC'];
+    showAllCustomer();
+    function showAllCustomer(){
+        let show = document.getElementById("customerList");
+        let text = '<table border="1"> <tr><th>Họ tên khách hàng</th><th>Action</th></tr>'
+        for (let i = 0; i<arrNameCustomers.length;i++){
+                text += '<tr><td>'+arrNameCustomers[i] + '</td><td><input type="button" value="Delete Customer" onclick="deleteCustomer('+i+')"></td></tr>';
+        }
+        text +='</table><input type="button" value="Sort" onclick="alphabetSort()">'
+        show.innerHTML = text;
+    }
+    function newCustomer(){
+        let n = parseInt(prompt('Nhập số lượng khách'));
+
+        let dem = 1;
+        do{
+            let name = prompt('Nhập tên khách hàng thứ '+ dem);
+            dem++;
+            arrNameCustomers.push(name);
+
+        }while(arrNameCustomers.length < n);
+
+        showAllCustomer();
+    }
+
+    function deleteCustomer(value){
+        arrNameCustomers.splice(value,1);
+        showAllCustomer();
+    }
+
+    function alphabetSort(){
+        arrNameCustomers = arrNameCustomers.sort();
+        showAllCustomer();
+
+    }
+</script>
+</body>
+</html>

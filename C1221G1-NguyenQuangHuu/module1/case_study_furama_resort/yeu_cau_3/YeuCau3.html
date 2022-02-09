@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let check = false;
+    let checkEmail = false;
+    let checkPassport = false;
+    let checkDOB = false;
+    let checkDiscount = false;
+    let checkRentsDay = false;
+    let checkNumbersCustomer = false;
+    let name;
+    let address;
+    let typeCustomer;
+    let email;
+    let idPassport;
+    let dob;
+    let discount;
+    let rentsDay;
+    let numbersCustomer;
+    do{
+        name = prompt('Nhập họ tên khách hàng');
+        name = checkSpace(name);
+        console.log(name);
+        address = prompt('Nhập địa chỉ khách hàng');
+        address = checkSpace(address);
+        console.log(address);
+        typeCustomer = prompt('Nhập membership khách hàng');
+        typeCustomer = checkSpace(typeCustomer);
+        console.log(typeCustomer);
+        while(!checkEmail) {
+            email = prompt('Nhập email');
+            email = email.trim();
+            checkEmail = validateEmail(email);
+            if (checkEmail === false) {
+                alert('Sai định dạng mời nhập lại');
+            }
+
+        }
+        while(!checkPassport){
+            idPassport = prompt('Nhập số Chứng minh thư');
+            checkPassport = validatePassport(idPassport);
+            if (checkPassport === false) {
+                alert('Sai định dạng mời nhập lại');
+            }
+        }
+        while(!checkDOB){
+            dob = prompt('Nhập ngày tháng năm sinh theo định dạng Day/Month/Year');
+            checkDOB = validateDOB(dob);
+            if(checkDOB===false){
+                alert('Sai định dạng mời nhập lại');
+            }
+        }
+        while(!checkDiscount){
+            discount = prompt('Nhập giảm giá');
+            checkDiscount = validateDiscount(discount);
+        }
+        while(!checkRentsDay){
+            rentsDay = prompt('Nhập số ngày sử dụng');
+            checkRentsDay = validateRentsDay(rentsDay);
+        }
+        while(!checkNumbersCustomer){
+            numbersCustomer = prompt('Nhập số lượng người đi kèm');
+            checkNumbersCustomer = validateNumbersCustomer(numbersCustomer);
+        }
+        if(checkEmail && checkPassport && checkDOB && checkDiscount && checkRentsDay && checkNumbersCustomer){
+            check = true;
+        }
+
+    }while(check!==true);
+    function validateEmail(value){
+        let checked = false;
+        let tenMien = ['.vn','.com','.org'];
+        let domainCheck = value.substr(value.indexOf('.'),value.length);
+        let checkDomain = false;
+        for ( let i = 0; i<tenMien.length;i++){
+            if(domainCheck === tenMien[i]){
+                checkDomain = true;
+            }
+        }
+        let checkSpace = true;
+        if(value.indexOf(" ")!==-1){
+            checkSpace = false;
+        }
+        let checkA = false;
+        if(value.indexOf('@')!==-1 && value.indexOf('@')>2){
+                checkA = true;
+        }
+        let checkLengthADot = false;
+        if((value.indexOf('.')-value.indexOf('@'))>2){
+            checkLengthADot = true;
+        }
+        if(checkA && checkDomain && checkLengthADot && checkSpace){
+            checked = true;
+        }
+        return checked;
+    }
+
+    function validatePassport(value){
+            let check = true;
+            value = value.split('');
+            if(value.length===9){
+                for(let i = 0; i<value.length;i++){
+                    if(isNaN(value[i]) === true){
+                        check = false;
+                    }else{
+                        check = true;
+                    }
+                }
+            }else{
+                check = false;
+            }
+            return check;
+    }
+
+    function validateDOB(value) {
+        let dob = value.split("/");
+
+        let day = Math.abs(dob[0] - 31);
+
+        let month = Math.abs(dob[1] - 12);
+
+        let currentYear = new Date();
+        let year = currentYear.getFullYear() - dob[2];
+        console.log(year);
+        if(day > 30 || isNaN(day)){
+            check = false;
+        }
+        else if(month > 11 || isNaN(month)) {
+            check = false;
+        }
+        else if(year > 100 || year < 15 || isNaN(year)){
+            check = false;
+        }else{
+            check = true;
+        }
+
+        return check;
+    }
+
+    function validateDiscount(value){
+        let checked = true;
+        let checkDiscount = Math.abs(value - 35)
+        if(isNaN(value) || checkDiscount > 35){
+            checked = false;
+        }
+        return checked;
+    }
+
+    function validateRentsDay(value){
+        let checked = true;
+        if(isNaN(value) || value<0){
+            checked = false;
+        }
+        return checked;
+    }
+
+    function validateNumbersCustomer(value){
+        let checked = true;
+        if(isNaN(value) || value<0){
+            checked = false;
+        }
+        return checked;
+    }
+
+
+    function checkSpace(value){
+        let checked = value.split(' ');
+        for(let i = 0 ; i<checked.length;i++){
+            if(checked[i]===''){
+                checked.splice(i,1);
+                i--;
+            }
+        }
+        for (let i = 0 ; i<checked.length;i++){
+            checked[i] = checkItem(checked[i]);
+        }
+
+        return checked.join(' ');
+    }
+
+    function checkItem(value){
+        let checkWords = value.split('');
+        for(let i = 0 ; i < checkWords.length;i++){
+            if(i===0){
+                checkWords[i] = checkWords[i].toUpperCase();
+            }else{
+                checkWords[i] = checkWords[i].toLowerCase();
+            }
+        }
+        return checkWords.join('');
+    }
+</script>
+</body>
+</html>

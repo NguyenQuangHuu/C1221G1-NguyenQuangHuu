@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="information"></div>
+<script>
+    let customerName = prompt('Nhập họ tên khách hàng');
+    let idPassport = prompt('Nhập số CMND/Passport của khách hàng');
+    let customerEmail = prompt('Nhập email khách hàng');
+    let customerAddress = prompt('Nhập địa chỉ của khách hàng');
+    let typeCustomer = prompt('Bậc khách hàng:\n' +
+        '1.Diamond.\n' +
+        '2.Platinum.\n' +
+        '3.Gold.\n' +
+        '4.Silver.\n' +
+        '5.Member.\n');
+    let discount = parseInt(prompt('Discount event.'));
+    let numbersCustomer = prompt('Số lượng khách đi kèm.');
+    let rentsDay = parseInt(prompt('Số ngày thuê.'));
+    let typeServices = parseInt(prompt('' +
+        '1.Villa.\n' +
+        '2.House.\n' +
+        '3.Room.'));
+    // let typeOfRents = parseInt(prompt('1.Vip.\n2.Business.\n3.Normal.'));
+    let payment = 0
+    switch (typeServices) {
+        case 1 : payment = 500*rentsDay*(1-discount/100);
+
+                break;
+        case 2 : payment = 300*rentsDay*(1-discount/100);
+
+            break;
+        case 3 : payment = 100*rentsDay*(1-discount/100);
+
+            break;
+    }
+
+    switch (typeCustomer) {
+        case '1':
+            typeCustomer = 'Diamond';break;
+            case '2':
+                typeCustomer = 'Platinum';break;
+            case '3':
+                typeCustomer = 'Gold';break;
+            case '4':
+                typeCustomer = 'Silver';break;
+           default:
+               typeCustomer = 'Member';break;
+    }
+
+    let info = document.getElementById("information");
+    let text = 'Họ tên khách hàng : '+customerName+'\n'+
+                'Địa chỉ : '+customerAddress+'\n'+
+                'Email : '+customerEmail+'\n'+
+                'Số chứng minh thư : '+idPassport+'\n'+
+                'Cấp bậc thành viên : '+typeCustomer+'\n'+
+                'Số ngày sử dụng dịch vụ : '+rentsDay+'\n'+
+                'Số lượng khách : '+numbersCustomer+'\n'+
+                'Tổng tiền phải trả: '+payment+'\n';
+    info.innerText = text;
+</script>
+</body>
+</html>
