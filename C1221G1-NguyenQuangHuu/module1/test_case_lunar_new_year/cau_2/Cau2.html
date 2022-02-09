@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let demo;
+    demo = prompt('Nhập chuỗi chữ muốn hiển thị chữ viết tắt');
+    document.write('Chuỗi trước xử lí viết tắt : ' + demo);
+    document.write('<br>');
+    document.write('Sau xử lí cụm từ viết tắt của chuỗi là :' + shortcutText(demo));
+
+    function shortcutText(text) {
+        //Xử lý khoảng trống 2 bên chuỗi
+        text = text.trim();
+
+        let array = text.split(" ");
+        //Tách chuỗi thành mảng được phân cách bởi khoảng trắng (dấu cách).
+        //Kiểm tra độ dài của mảng, nếu mảng chỉ có 1 phần tử thì không cần viết tắt
+        //Nếu mảng không có khoảng trắng thì sẽ chỉ có 1 phẩn tử nên không cần so sánh độ dài
+        if (array.length < 2) {
+            alert('This text no need to shortcut');
+        }
+        // xử lí xóa đi những phần tử không phải là chữ còn lại trong mảng
+        else {
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] === '') {
+                    array.splice(i, 1);
+                    i--;
+                }
+            }
+            console.log(array);
+        }
+        //Tạo 1 mảng rỗng lưu trữ những chữ cái đầu của chuỗi trong mảng;
+        let firstChar = [];
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+                if (j === 0) {
+                    firstChar.push(array[i][j]);
+                }
+            }
+        }
+        // Viết hoa những chữ cái đầu
+        let a = firstChar.map((element) => {
+            return element.toUpperCase();
+        });
+        //trả mảng về thành chuỗi được nối bởi hàm join và không có khoảng trắng
+        return a.join('');
+    }
+</script>
+</body>
+</html>

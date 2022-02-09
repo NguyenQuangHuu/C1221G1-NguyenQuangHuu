@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let array = [];
+    let n = parseInt(prompt('Enter array length:'));
+    let dem = 0;
+    let e;
+    do {
+        e = parseInt(prompt('Nhập phần tử ở vị trí index :' + dem + ' : '));
+        array.push(e);
+        dem++;
+    } while (array.length < n && !isNaN(e));
+    document.write('Mảng đã nhập: ' + array);
+    document.write('<br>');
+    let sum = 0;
+    let count = 0;
+    for (let i = 0; i < array.length; i++) {
+        if (i % 3 === 0) {
+            sum += array[i];
+
+            count++;
+            document.write('Phần tử ở vị trí index ' + i + ' chia hết cho 3 : ' + array[i]);
+            document.write('<br>');
+        }
+
+
+    }
+    document.write('Tổng phần tử tại vị trí index chia hết cho 3 là :' + sum);
+    document.write('<br>');
+
+    document.write('Số phần tử ở vị trí index chia hết số 3 là :' + count);
+
+    document.write('<br>');
+
+    let avgAtIndexDivisionBy3 = sum / count;
+    document.write('Giá trị trung bình của phần tử ở vị trí index chia hết cho 3 là : ' + avgAtIndexDivisionBy3);
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array = [1, 13, 0, 1, 25, 34, 46, 15, 55, 0, 71, 82, 91, 377];
+
+    document.write('Mảng được cho : ' + array);
+    document.write('<br>');
+    let fibonacciArray = [];
+
+    for (let i = 0; i < 30; i++) {
+        fibonacciArray.push(fibonacci(i));
+    }
+    document.write('Mảng chưa các phần tử là số fibonacci : ' + fibonacciArray);
+    document.write('<br>');
+    let fibonacciInArray = [];
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < fibonacciArray.length; j++) {
+            if (array[i] === fibonacciArray[j]) {
+                fibonacciInArray.push(array[i]);
+                break;
+            }
+        }
+    }
+    console.log(fibonacciArray);
+    console.log(fibonacciInArray);
+
+    function fibonacci(number) {
+        if (number < 1) {
+            return 0;
+        }
+        if (number < 3) {
+            return 1;
+        }
+
+        return fibonacci(number - 2) + fibonacci(number - 1);
+    }
+
+    let sortFibonacciInArray = fibonacciInArray.sort((a, b) => {
+        return (a - b);
+    });
+    document.write('Các số fibonacci ở trong Array  sau khi được kiểm tra và sắp xếp là : ' + sortFibonacciInArray);
+</script>
+</body>
+</html>

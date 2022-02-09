@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <input type="button" onclick="addAccount()" value="Thêm tài khoản">
+    <input type="button" onclick="showAllAccount()" value="Hiển thị toàn bộ danh sách">
+</div>
+<div id="banker"></div>
+<script>
+    class BankAccount {
+        constructor(id, name, bankName) {
+            this.id = id;
+            this.name = name;
+            this.bankName = bankName;
+            this.amount = 0;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        setId(value) {
+            this.id = value;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(value) {
+            this.name = value;
+        }
+
+        getBankName() {
+            return this.bankName;
+        }
+
+        setBankName(value) {
+            this.bankName = value;
+        }
+
+        getAmount() {
+            return this.amount;
+        }
+
+        setAmount(value) {
+            this.amount = value;
+        }
+
+        toString() {
+            return 'Số tải khoản :' + this.getId() +
+                '<br>' + 'Chủ tài khoản : ' + this.getName() +
+                '<br>' + 'Ngân Hàng : ' + this.bankName +
+                '<br>' + 'Số dư tài khoản: ' + this.getAmount() +
+                '<br>';
+        }
+    }
+
+    let bankAccounts = [];
+    let banker1 = new BankAccount('12345', 'Nguyễn Văn A', 'Vietcombank');
+    bankAccounts.push(banker1);
+    banker1.setAmount(10000);
+
+    function addAccount() {
+
+        let checkId;
+        let id;
+        let checkExist;
+        do {
+            id = prompt('Nhập số tài khoản');
+            if (id === null) {
+                return;
+            } else {
+
+
+                checkId = true;
+                if (id.length !== 5) {
+                    alert('Số tài khoản phải là 5 số');
+                    checkId = false;
+                } else {
+                    let checkIdType = id.split("");
+                    for (let i = 0; i < checkIdType.length; i++) {
+                        console.log(checkIdType[i]);
+                        if (isNaN(parseInt(checkIdType[i]))) {
+                            checkId = false;
+                            alert('STK phải là số');
+                            break;
+                        }
+                    }
+                }
+
+                checkExist = true;
+                for (let i = 0; i < bankAccounts.length; i++) {
+                    if (bankAccounts[i].getId() === id) {
+                        checkExist = false;
+                        alert('STK này đã trùng, vui lòng chọn STK khác');
+                        break;
+                    }
+                }
+                console.log(checkId, checkExist, id);
+            }
+        } while (!checkId || !checkExist);
+
+
+        let checkSpaceInName = true;
+        let name;
+        do {
+            name = prompt('Nhập tên chủ tài khoản');
+            if (name === null || name.length === 0) {
+                checkSpaceInName = false;
+                alert('Tên Khách Hàng không được để trống');
+            } else {
+                name = handleInput(name);
+            }
+
+        } while (!checkSpaceInName);
+
+
+        let checkSpaceInBankName = true;
+        let bank;
+        do {
+            bank = prompt('Nhập tên ngân hàng sở hữu');
+            if (bank === null || bank.length === 0) {
+                checkSpaceInBankName = false;
+                alert('Tên Ngân hàng không được để trống');
+            } else {
+                bank = handleInput(bank);
+            }
+
+        } while (!checkSpaceInBankName);
+
+
+        let banker = new BankAccount(id, name, bank);
+        bankAccounts.push(banker);
+    }
+
+    function showAllAccount() {
+        let text = '';
+        for (let i = 0; i < bankAccounts.length; i++) {
+            text += '<p style="border: 1px solid darkgray;display: inline-block;padding:4px;margin:4px">' + bankAccounts[i].toString() + '</p>';
+        }
+        let information = document.getElementById("banker");
+        information.innerHTML = text;
+    }
+
+    function handleInput(value) {
+        let handleWord = value.split(" ");
+        for (let i = 0; i < handleWord.length; i++) {
+            if (handleWord[i] === '') {
+                handleWord.splice(i, 1);
+                i--;
+            }
+        }
+        let result = '';
+        for (let i = 0; i < handleWord.length; i++) {
+            result += handleLetter(handleWord[i]) + ' ';
+        }
+        return result;
+    }
+
+    function handleLetter(value) {
+        let letter = value.split('');
+        for (let k = 0; k < letter.length; k++) {
+            if (k === 0) {
+                letter[k] = letter[k].toUpperCase();
+            } else {
+                letter[k] = letter[k].toLowerCase();
+            }
+        }
+        return letter.join('');
+    }
+</script>
+</body>
+</html>
