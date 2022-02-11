@@ -8,14 +8,25 @@
 <script>
 
     let array = [];
-    let n = parseInt(prompt('Enter array length:'));
+    let n;
+    do{
+        n = parseInt(prompt('Enter array length:'));
+        if(n>50){
+            alert("Số phần tử không được lớn hơn 50");
+        }
+        if(n<0){
+            alert("Số phần tử của mảng phải là số dương");
+        }
+    }while (n>50 || n<0 || isNaN(n));
     let dem = 0;
     let e;
     do {
-        e = parseInt(prompt('Nhập phần tử ở vị trí index :' + dem + ' : '));
-        array.push(e);
-        dem++;
-    } while (array.length < n && !isNaN(e));
+            e = parseInt(prompt('Nhập phần tử ở vị trí index :' + dem + ' : '));
+            array.push(e);
+            dem++;
+        } while (array.length < n && !isNaN(e));
+
+
     document.write('Mảng đã nhập: ' + array);
     document.write('<br>');
     let sum = 0;
