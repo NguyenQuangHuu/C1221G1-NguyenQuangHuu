@@ -13,11 +13,11 @@
 <div id="banker"></div>
 <script>
     class BankAccount {
-        constructor(id, name, bankName) {
+        constructor(id, name, bankName,sum) {
             this.id = id;
             this.name = name;
             this.bankName = bankName;
-            this.amount = 0;
+            this.amount = sum;
         }
 
         getId() {
@@ -60,6 +60,9 @@
                 '<br>';
         }
     }
+
+
+
 
     let bankAccounts = [];
     let banker1 = new BankAccount('12345', 'Nguyễn Văn A', 'Vietcombank');
